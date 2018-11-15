@@ -7,3 +7,15 @@ var config = {
     messagingSenderId: "915749649529"
   };
   firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+  var listItem1 = "";
+  var listItem2 = "";
+  var listItem3 = "";
+
+  database.ref().set({
+      listItem1,
+      listItem2,
+      listItem3
+  });
