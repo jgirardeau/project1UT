@@ -19,3 +19,14 @@ var config = {
       listItem2,
       listItem3
   });
+
+  $("#submitButton").click(function() {
+    event.preventDefault();
+    alert('submit')
+    var recipeName = $("#recipeSearch").val();
+    var errroInForm=false;
+    if (!validText(recipeName, $("#recipeSearch"))) errorInForm = true;
+    if(!errorInForm){
+        // submit here to search api
+    }
+});

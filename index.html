@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Plan Your Meal</title>
-    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
@@ -29,7 +29,7 @@
           Plan Your Meal for Tonight!
         </h1>
         <h2 class="subtitle">
-          Subtitle
+          And make your shopping list.
         </h2>
       </div>
     </div><!--end of hero-head-->
@@ -43,10 +43,10 @@
               <div>
                 <label class="label">Recipe Search: </label>
                 <div class="control">
-                  <input class="input" id="recipe-search" type="text" placeholder="Text input">
+                  <input class="input" id="recipeSearch" type="text" placeholder="Text input">
+                  <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
                 </div>
-                <p class="help" id="error-message">Note: We can put our error message in red here, ask them to use letters if they use numbers or symbols to search</p>
-                <input class="button" type="submit" value="Submit">
+                <input id="submitButton" class="button" type="submit" value="Submit">
               </div>
             </div>
           </div>
@@ -363,7 +363,7 @@
   </section><!--end of Hero Section, contains whole page-->
 
 
-    <script src="./assets/javascript/main.js"></script>
+    <script src="assets/javascript/main.js"></script>
 </body>
 
 </html>
