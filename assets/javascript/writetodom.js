@@ -29,9 +29,10 @@ function renderIngredientsToHtml(val) {
         info += "cook time: " + val.cookTime;
     }
     $("#recipeInformation").text(info);
+    $("#recipeURL").attr('href', val.attribution.url)
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
     var box2 = $('#hidden-box').clone();
     // box2.attr('id', 'box-' + val.id);
     box2.removeClass("hidden").addClass("notHidden");
-    box2.appendTo('#box-container');
+    box2.prependTo('#box-container');
 }
