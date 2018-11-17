@@ -29,7 +29,7 @@ function renderIngredientsToHtml(val) {
         info += "cook time: " + val.cookTime;
     }
     $("#recipeInformation").text(info);
-    $("#image-1").attr('src', (val.images[0].hostedMediumUrl));
+    $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
     var box2 = $('#hidden-box').clone();
     // box2.attr('id', 'box-' + val.id);
     box2.removeClass("hidden").addClass("notHidden");
