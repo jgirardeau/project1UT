@@ -1,21 +1,25 @@
 $(document).ready(function(){
-        var recipeID = $(".media box");
-    $(document).on("click", ".level-item", function(){
-        console.log(favrecipe);
-        $("#fav-recipes").text(favrecipe);
-       //will need to change "text" to prepend
-    });
     function removeRecipe(){
-        var recipeToRemove = $("#recipe-5");
+        var recipeToRemove = $("#content-5");//need recipe id number
         recipeToRemove.remove();
-        // $(this).closest(".article").remove();
     }
+    function addToFavorites(){
+        $(".recipeSubHead").remove();
+        var newDiv = $("<div>");
+        var recipeID = $("#content-5");//will need id num for each recipe
+        newDiv.append(recipeID);
+        $("#fav-recipes").append(newDiv);
+        
+    }
+
+    $(document).on("click", ".level-item", function(){
+        event.preventDefault();
+        addToFavorites();
+    });
    
     $(document).on("click", ".delete", function(){
         event.preventDefault();
-        console.log("clicked");
         removeRecipe();
-        // $(this).closest(".article").remove();
         $(this).parent().remove();
     });
 })
