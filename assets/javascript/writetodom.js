@@ -16,7 +16,7 @@ function renderRecipeToHtml(response) {
 }
 
 function renderIngredientsToHtml(val) {
-    console.log(val);
+    // console.log(val);
     $('#recipe-title').text(val.name);
     var info = "";
     if (val.numberOfServings) info += "servings: " + val.numberOfServings;
@@ -32,7 +32,7 @@ function renderIngredientsToHtml(val) {
     $("#recipeURL").attr('href', val.attribution.url)
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
     var box2 = $('#hidden-box').clone();
-    // box2.attr('id', 'box-' + val.id);
-    box2.removeClass("hidden").addClass("notHidden");
-    box2.prependTo('#box-container');
+    box2.attr('id', 'box-' + val.id);
+    box2.removeClass("hidden");
+    box2.appendTo('#box-container');
 }

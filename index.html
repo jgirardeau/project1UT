@@ -34,131 +34,128 @@
             </div>
         </div>
         <!--end of field-->
-        <!--Input Field-->
-        <div class="field box">
-            <div class="level">
-                <div class="level-item has-text-centered">
-                    <div>
-                        <label class="label">Recipe Search: </label>
-                        <div class="control">
-                            <input class="input" id="recipeSearch" type="text" placeholder="Text input">
-                            <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
-                            <span id="recipeNotFound" class="errorHide">No recipes found</span>
-                            <br><input id="submitButton" class="button" type="submit" value="Submit">
-                        </div>
+
+        <!--STYLE THESE NEXT TWO SECTIONS IN CSS, heading should be bold, p items if we choose to keep them should be faint-->
+
+        <!--Favorite Recipes will go here-->
+        <div id="fav-recipes" class="box">
+            <h3>Favorite Recipes</h3>
+            <p>Items will appear when you click the heart</p>
+        </div>
+
+        <!--Grocery List will go here-->
+        <div id="grocery-list" class="box">
+            <h3>Grocery List</h3>
+            <p>Items will appear when you "Add to Grocery List"</p>
+        </div>
+
+        <div class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <label class="label">Recipe Search: </label>
+                    <div class="control">
+                        <input class="input" id="recipeSearch" type="text" placeholder="Text input">
+                        <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
+                        <span id="recipeNotFound" class="errorHide">No recipes found</span>
+                        <br><input id="submitButton" class="button" type="submit" value="Submit">
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!--STYLE THESE NEXT TWO SECTIONS IN CSS, heading should be bold, p items if we choose to keep them should be faint-->
-
-            <!--Favorite Recipes will go here-->
-            <div id="fav-recipes" class="box">
-                <h3>Favorite Recipes</h3>
-                <p>Items will appear when you click the heart</p>
-            </div>
-
-            <!--Grocery List will go here-->
-            <div id="grocery-list" class="box">
-                <h3>Grocery List</h3>
-                <p>Items will appear when you "Add to Grocery List"</p>
-            </div>
-
-            <div id="box-container">
-
-                <!--end of field-->
-
-                <!--First Recipe Box-->
-                <article class="media box hidden" id="hidden-box">
-                    <!--food image-->
-                    <figure class="media-left">
-                        <!-- <p class="image is-150x150"> -->
-                        <img src="https://via.placeholder.com/150" id="image-1">
+        <div id="box-container">
+            <!--First Recipe Box-->
+            <article class="media box hidden" id="hidden-box">
+                <!--food image-->
+                <figure class="media-left">
+                    <p class="image is-150x150">
+                        <img src="https://lh3.googleusercontent.com/o06I2E7LQUks83GWvDXRJ4dJgfxUZWazwOJPZHMhEvaqVbLySWjGkyLxnuNMCoo0cnSKypXfkK6Rxr_thPB8DoE=s360" id="image-1">
+                    </p>
+                </figure>
+                <!--content-->
+                <div class="media-content" id="recipe-1">
+                    <div class="content box">
+                        <p>
+                            <strong id="recipe-title">Recipe 1</strong>
+                            <div id="recipeInformation"></div>
+                            <a id="recipeURL" href="http://www.google.com" target="_blank">Get Recipe</a>
                         </p>
-                    </figure>
-                    <!--content-->
-                    <div class="media-content" id="recipe-1">
-                        <div class="content box">
-                            <p>
-                                <strong id="recipe-title">Recipe 1</strong>
-                                <div id="recipeInformation"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-                                <a id="recipeURL" href="http://www.google.com" target="_blank">Get Recipe</a>
-                            </p>
-                        </div>
-                        <!--heart & ingredients-->
-                        <nav class="level is-mobile">
-                            <div class="level-left">
-                                <a class="level-item">
-                                    <span class="icon is-small"><i class="fas fa-heart"></i></span>
-                                </a>
-                                <p>Add to Favorites</p>
-                                <div class="dropdown is-hoverable">
-                                    <div class="dropdown-trigger">
-                                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                    </div>
+                    <!--heart & ingredients-->
+                    <nav class="level is-mobile">
+                        <div class="level-left">
+                            <a class="level-item">
+                                <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                            </a>
+                            <p>Add to Favorites</p>
+                            <div class="dropdown is-hoverable">
+                                <div class="dropdown-trigger">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                         <span>Ingredients</span>
                         <span class="icon is-small">
                           <i class="fas fa-angle-down" aria-hidden="true"></i>
                         </span>
                       </button>
-                                    </div>
-                                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-                                        <div class="dropdown-content">
-                                            <div class="dropdown-item">
-                                                <ul>
-                                                    <li>eggs</li>
-                                                    <li>milk</li>
-                                                    <li>sugar</li>
-                                                </ul>
-                                                <a href="#">Add to Grocery List</a>
-                                            </div>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-item">
+                                            <ul>
+                                                <li>eggs</li>
+                                                <li>milk</li>
+                                                <li>sugar</li>
+                                            </ul>
+                                            <a href="#">Add to Grocery List</a>
                                         </div>
                                     </div>
                                 </div>
-                                <!--end of Ingredents drop down-->
-                                <div class="dropdown is-hoverable">
-                                    <div class="dropdown-trigger">
-                                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            </div>
+                            <!--end of Ingredents drop down-->
+                            <div class="dropdown is-hoverable">
+                                <div class="dropdown-trigger">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                         <span>Nutrition</span>
                         <span class="icon is-small">
                           <i class="fas fa-angle-down" aria-hidden="true"></i>
                         </span>
                       </button>
-                                    </div>
-                                    <div class="dropdown-menu" id="dropdown-menu6" role="menu">
-                                        <div class="dropdown-content">
-                                            <div class="dropdown-item">
-                                                <ul>
-                                                    <li>Cal</li>
-                                                    <li>Sod</li>
-                                                    <li>etc</li>
-                                                </ul>
-                                            </div>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu45" role="menu">
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-item">
+                                            <ul>
+                                                <li>Cal</li>
+                                                <li>Sod</li>
+                                                <li>etc</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <!--end of Nutrition drop down-->
                             </div>
-                        </nav>
-                    </div>
-                    <!--end of content-->
-                    <!--x in corner to delete-->
-                    <div class="media-right">
-                        <button class="delete"></button>
-                    </div>
-                </article>
-                <!--end of first recipe-->
+                            <!--end of Nutrition drop down-->
+                        </div>
+                    </nav>
+                </div>
+                <!--end of content-->
+                <!--x in corner to delete-->
+                <div class="media-right">
+                    <button class="delete"></button>
+                </div>
+            </article>
+            <!--end of first recipe-->
 
-            </div>
-            <!--end of box-container-->
-
-
-
-            <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
-                <ul>
-                    <li><a href="#top">Back to the Top</a></li>
-                </ul>
-            </nav>
         </div>
+        <!--end of box-container-->
+
+
+
+        <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="#top">Back to the Top</a></li>
+            </ul>
+        </nav>
+
+
     </section>
     <!--end of Hero Section, contains whole page-->
 

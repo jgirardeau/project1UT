@@ -47,7 +47,7 @@ $(document).ready(function() {
 
     // for (var i = 1; i < 3; i++) {
 
-    //     $('#recipe-title').text('API RECIPE TITLE');
+    //     // $('#recipe-title').text('API RECIPE TITLE');
     //     var box2 = $('#hidden-box').clone();
     //     box2.attr('id', 'box-' + i);
     //     box2.appendTo('#box-container');
