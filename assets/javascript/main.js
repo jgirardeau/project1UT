@@ -75,4 +75,9 @@ $("#submitButton").click(function() {
         //console.log("call recipe api" + recipeName)
         getRecipe(recipeName);
     }
+
+$("#clearButton").click(function() {
+    event.preventDefault();
+    $( "#box-container" ).empty();
+})
 });
