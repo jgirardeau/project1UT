@@ -30,7 +30,8 @@ function addItemsToList(htmlRef, items) {
 }
 
 function renderIngredientsToHtml(val) {
-    console.log(val);
+    // console.log(val);
+    // configure template html
     $('#recipe-title').text(val.name);
     info = addToStringWithComma("", "Servings: ", val.numberOfServings);
     info = addToStringWithComma(info, "Prep time: ", val.prepTime);
@@ -38,9 +39,10 @@ function renderIngredientsToHtml(val) {
     $("#recipeInformation").text(info);
     $("#recipeURL").attr('href', val.attribution.url)
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl)); 
-    addItemsToList($("#groceryList"), val.ingredientLines);
-    $("#grocerylist").attr('id','food-'+ val.id);
-    $("#addtogrocery").attr('data','food-'+ val.id);
+    addItemsToList($("#recipeGroceryList"), val.ingredientLines);
+    $("#addToGrocery").attr('data','food-'+ val.id);
+    $("#recipeGrocerylist").attr('id','food-'+ val.id);
+// clone
     var box2 = $('#hidden-box').clone();
     box2.attr('id', 'box-' + val.id);
     box2.removeClass("hidden");

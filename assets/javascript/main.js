@@ -82,17 +82,17 @@ $("#clearButton").click(function () {
     $("#box-container").empty();
 })
 // Adding a click button for a dynamic element
-$(document).on('click', '#addtogrocery', function () {
+$(document).on('click', '#addToGrocery', function () {
     event.preventDefault();
     console.log(this);
     var tableName = $(this).attr('data');
     console.log(tableName);
-    jQuery('#' + tableName).each(function (cmp) {
-        console.log(jQuery(this).text());
-        var h2 = $("<h2>");
-        var ingredient = $(this).text();
-        h2.text(ingredient)
-        $("#groceryList").append(h2);
-    });
+    // jQuery('#' + tableName).each(function (cmp) {
+    //     console.log(jQuery(this).text());
+    //     var h2 = $("<h2>");
+    //     var ingredient = $(this).text();
+    //     h2.text(ingredient)
+    //     $("#groceryList").append(h2);
+    // });
 });
 
