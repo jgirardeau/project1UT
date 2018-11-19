@@ -1,10 +1,5 @@
 function renderRecipeToHtml(response) {
-    //     var box2 = $('#hidden-box').clone();
-    //     box2.attr('id', 'box-' + i);
-    //     box2.appendTo('#box-container');
     var recipes = response.matches;
-    //console.log(response);
-    // console.log(recipes.length)
     if (recipes.length < 1) {
         $("#recipeNotFound").removeClass("errorHide").addClass("errorShow");
     } else {
@@ -14,24 +9,37 @@ function renderRecipeToHtml(response) {
         getIngredients(val.id)
     });
 }
+// filter out undefines; add "," if more than one descriptor already
+function addToStringWithComma(string, stringHead, stringTail) {
+    // console.log("start of call " + stringTail)
+    if (stringTail) {
+        if (string) string += ", ";
+        string += stringHead + stringTail;
+    }
+    //console.log("return ", string)
+    return string;
+}
+
+function addItemsToList(htmlRef, items) {
+    htmlRef.empty();
+    items.forEach(function(val) {
+        var li = $("<li>");
+        li.text(val);
+        htmlRef.append(li);
+    });
+}
 
 function renderIngredientsToHtml(val) {
-    // console.log(val);
+    console.log(val);
     $('#recipe-title').text(val.name);
-    var info = "";
-    if (val.numberOfServings) info += "servings: " + val.numberOfServings;
-    if (val.prepTime) {
-        if (info) info += ", ";
-        info += "prep time: " + val.prepTime;
-    }
-    if (val.cookTime) {
-        if (info) info += ", ";
-        info += "cook time: " + val.cookTime;
-    }
+    info = addToStringWithComma("", "Servings: ", val.numberOfServings);
+    info = addToStringWithComma(info, "Prep time: ", val.prepTime);
+    info = addToStringWithComma(info, "Cooking time: ", val.cookTime);
     $("#recipeInformation").text(info);
     $("#recipeURL").attr('href', val.attribution.url)
-    $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
-    $("#food").attr('id','food-'+ val.id);
+    $("#image-1").attr('src', (val.images[0].hostedLargeUrl)); 
+    addItemsToList($("#groceryList"), val.ingredientLines);
+    $("#grocerylist").attr('id','food-'+ val.id);
     $("#addtogrocery").attr('data','food-'+ val.id);
     var box2 = $('#hidden-box').clone();
     box2.attr('id', 'box-' + val.id);
