@@ -31,6 +31,8 @@ function renderIngredientsToHtml(val) {
     $("#recipeInformation").text(info);
     $("#recipeURL").attr('href', val.attribution.url)
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
+    $("#food").attr('id','food-'+ val.id);
+    $("#addtogrocery").attr('data','food-'+ val.id);
     var box2 = $('#hidden-box').clone();
     box2.attr('id', 'box-' + val.id);
     box2.removeClass("hidden");
