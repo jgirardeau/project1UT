@@ -44,7 +44,7 @@
         </div>
 
         <!--Grocery List will go here-->
-        <div id="grocery-list" class="box">
+        <div id="groceryList" class="box">
             <h3>Grocery List</h3>
             <!-- <p>Items will appear when you "Add to Grocery List"</p> -->
         </div>
@@ -52,7 +52,7 @@
         <div class="level">
             <div class="level-item has-text-centered">
                 <div>
-                    <label class="label">Recipe Search: </label>
+                    <label class="label">Recipe Seasrch: </label>
                     <div class="control">
                         <input class="input" id="recipeSearch" type="text" placeholder="Text input">
                         <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
@@ -90,48 +90,48 @@
                         <div class="dropdown is-hoverable">
                             <div class="dropdown-trigger">
                                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                <span>Ingredients</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
+                                    <span>Ingredients</span>
+                                    <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
                             </div>
                             <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                                 <div class="dropdown-content">
                                     <div class="dropdown-item">
-                                        <ul id="groceryList">
+                                        <ul id="recipeGroceryList">
                                             <li>eggs</li>
                                             <li>milk</li>
                                             <li>sugar</li>
                                         </ul>
-                                        <a href="#">Add to Grocery List</a>
+                                        <a href="#" id="addToGrocery">Add to Grocery List</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!--end of Ingredents drop down-->
-                        <div class="dropdown is-hoverable">
-                            <div class="dropdown-trigger">
-                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                <span>Nutrition</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-                            </div>
-                            <div class="dropdown-menu" id="dropdown-menu45" role="menu">
-                                <div class="dropdown-content">
-                                    <div class="dropdown-item">
-                                        <ul>
-                                            <li>Cal</li>
-                                            <li>Sod</li>
-                                            <li>etc</li>
-                                        </ul>
+                            <!--end of Ingredents drop down-->
+                            <div class="dropdown is-hoverable">
+                                <div class="dropdown-trigger">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                        <span>Nutrition</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu45" role="menu">
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-item">
+                                            <ul>
+                                                <li>Cal</li>
+                                                <li>Sod</li>
+                                                <li>etc</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!--end of Nutrition drop down-->
                         </div>
-                        <!--end of Nutrition drop down-->
                     </div>
                 </nav>
             </div>

@@ -5,6 +5,7 @@ function renderRecipeToHtml(response) {
     } else {
         $("#recipeNotFound").removeClass("errorShow").addClass("errorHide");
     }
+    //getIngredients(recipes[0].id);
     recipes.forEach(function(val) {
         getIngredients(val.id)
     });
@@ -30,7 +31,8 @@ function addItemsToList(htmlRef, items) {
 }
 
 function renderIngredientsToHtml(val) {
-    console.log(val);
+    // console.log(val);
+    // configure template html
     $('#recipe-title').text(val.name);
     info = addToStringWithComma("", "Servings: ", val.numberOfServings);
     info = addToStringWithComma(info, "Prep time: ", val.prepTime);
@@ -38,9 +40,15 @@ function renderIngredientsToHtml(val) {
     $("#recipeInformation").text(info);
     $("#recipeURL").attr('href', val.attribution.url)
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
-    addItemsToList($("#groceryList"), val.ingredientLines);
+    addItemsToList($("#recipeGroceryList"), val.ingredientLines);
+    $("#addToGrocery").attr('data', 'food-' + val.id);
+    var recipeLocation = $("#recipeGroceryList");
+    $("#recipeGroceryList").attr('id', 'food-' + val.id);
+
+    // clone
     var box2 = $('#hidden-box').clone();
     box2.attr('id', 'box-' + val.id);
     box2.removeClass("hidden");
     box2.appendTo('#box-container');
+    recipeLocation.attr('id', "recipeGroceryList");
 }
