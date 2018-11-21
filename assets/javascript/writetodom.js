@@ -5,10 +5,10 @@ function renderRecipeToHtml(response) {
     } else {
         $("#recipeNotFound").removeClass("errorShow").addClass("errorHide");
     }
-    getIngredients(recipes[0].id);
-    // recipes.forEach(function(val) {
-    //     getIngredients(val.id)
-    // });
+    //getIngredients(recipes[0].id);
+    recipes.forEach(function(val) {
+        getIngredients(val.id)
+    });
 }
 // filter out undefines; add "," if more than one descriptor already
 function addToStringWithComma(string, stringHead, stringTail) {
@@ -39,13 +39,16 @@ function renderIngredientsToHtml(val) {
     info = addToStringWithComma(info, "Cooking time: ", val.cookTime);
     $("#recipeInformation").text(info);
     $("#recipeURL").attr('href', val.attribution.url)
-    $("#image-1").attr('src', (val.images[0].hostedLargeUrl)); 
+    $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
     addItemsToList($("#recipeGroceryList"), val.ingredientLines);
-    $("#addToGrocery").attr('data','food-'+ val.id);
-    $("#recipeGroceryList").attr('id','food-'+ val.id);
-// clone
+    $("#addToGrocery").attr('data', 'food-' + val.id);
+    var recipeLocation = $("#recipeGroceryList");
+    $("#recipeGroceryList").attr('id', 'food-' + val.id);
+
+    // clone
     var box2 = $('#hidden-box').clone();
     box2.attr('id', 'box-' + val.id);
     box2.removeClass("hidden");
     box2.appendTo('#box-container');
+    recipeLocation.attr('id', "recipeGroceryList");
 }

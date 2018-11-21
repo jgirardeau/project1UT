@@ -41,7 +41,7 @@ database.ref().set({
 
 //change display hidden to display none
 
-$(document).ready(function () {
+$(document).ready(function() {
     // console.log('ready');
     // //box1.clone().appendTo( '#box-container' );
 
@@ -67,7 +67,7 @@ function validateInputTextNotEmpty(inputText, htmlRef) {
     return validText;
 }
 
-$("#submitButton").click(function () {
+$("#submitButton").click(function() {
     event.preventDefault();
     var recipeName = $("#recipeSearch").val();
     // console.log(recipeName);
@@ -77,22 +77,22 @@ $("#submitButton").click(function () {
     }
 });
 
-$("#clearButton").click(function () {
-    event.preventDefault();
-    $("#box-container").empty();
-})
-// Adding a click button for a dynamic element
-$(document).on('click', '#addToGrocery', function () {
+$("#clearButton").click(function() {
+        event.preventDefault();
+        $("#box-container").empty();
+    })
+    // Adding a click button for a dynamic element
+$(document).on('click', '#addToGrocery', function() {
     event.preventDefault();
     console.log(this);
     var tableName = $(this).attr('data');
     console.log(tableName);
-    // jQuery('#' + tableName).each(function (cmp) {
-    //     console.log(jQuery(this).text());
-    //     var h2 = $("<h2>");
-    //     var ingredient = $(this).text();
-    //     h2.text(ingredient)
-    //     $("#groceryList").append(h2);
-    // });
+    jQuery('#' + tableName).each(function(cmp) {
+        console.log(jQuery(this).text());
+        var h2 = $("<h2>");
+        var ingredient = $(this).text();
+        h2.text(ingredient)
+        $("#groceryList").append(h2);
+    });
+    window.scrollTo(0, 0);
 });
-
