@@ -5,9 +5,10 @@ function renderRecipeToHtml(response) {
     } else {
         $("#recipeNotFound").removeClass("errorShow").addClass("errorHide");
     }
-    recipes.forEach(function(val) {
-        getIngredients(val.id)
-    });
+    getIngredients(recipes[0].id);
+    // recipes.forEach(function(val) {
+    //     getIngredients(val.id)
+    // });
 }
 // filter out undefines; add "," if more than one descriptor already
 function addToStringWithComma(string, stringHead, stringTail) {
@@ -41,7 +42,7 @@ function renderIngredientsToHtml(val) {
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl)); 
     addItemsToList($("#recipeGroceryList"), val.ingredientLines);
     $("#addToGrocery").attr('data','food-'+ val.id);
-    $("#recipeGrocerylist").attr('id','food-'+ val.id);
+    $("#recipeGroceryList").attr('id','food-'+ val.id);
 // clone
     var box2 = $('#hidden-box').clone();
     box2.attr('id', 'box-' + val.id);
