@@ -21,6 +21,41 @@ database.ref().set({
     listItem3
 });
 
+//Add Function to render Full media box
+
+//create test object that comes back from API
+//2 hardcoded arrays of what will be populated
+
+//FIRST STEP - dyamically copy article (copy box 1)
+//create document.onload (grabs element by id, grab parent of element, clone child and append)
+
+//test the title to see if we can change that one variable then move onto API
+
+
+//THEN, before appending, grabbing elements before append plug in info from API
+//rather then onload, 
+
+//eventually convert onload function to populate recipe.. then variables
+
+//child - #box-1
+//parent - #box-container
+
+//change display hidden to display none
+
+$(document).ready(function() {
+    // console.log('ready');
+    // //box1.clone().appendTo( '#box-container' );
+
+    // for (var i = 1; i < 3; i++) {
+
+    //     // $('#recipe-title').text('API RECIPE TITLE');
+    //     var box2 = $('#hidden-box').clone();
+    //     box2.attr('id', 'box-' + i);
+    //     box2.appendTo('#box-container');
+    // }
+
+});
+
 function validateInputTextNotEmpty(inputText, htmlRef) {
     var validText = false;
     // console.log(inputText, " ", inputText.length)
@@ -38,31 +73,28 @@ $("#submitButton").click(function() {
     var recipeName = $("#recipeSearch").val();
     // console.log(recipeName);
     if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
-        // call api
+        //console.log("call recipe api" + recipeName)
+        getRecipe(recipeName);
     }
 });
 
-    
-$(document).on("click", ".level-item", function(){
-    // console.log(favrecipe);
-    var favDiv = $("<div>");
-    var favrecipe = $("#buttons-test");
-    favDiv.append(favrecipe);
-    $("#fav-recipes").append(favDiv);
-    
-   //will need to change "text" to prepend
-});
-function removeRecipe(){
-    var recipeToRemove = $("#buttons-test");
-    recipeToRemove.remove();
-    // $(this).closest(".article").remove();
-}
-
-$(document).on("click", ".delete", function(){
+$("#clearButton").click(function() {
+        event.preventDefault();
+        $("#box-container").empty();
+    })
+    // Adding a click button for a dynamic element
+$(document).on('click', '#addToGrocery', function() {
     event.preventDefault();
-    console.log("clicked");
-    removeRecipe();
-    // $(this).closest(".article").remove();
-    $(this).parent().remove();
+    console.log(this);
+    var tableName = $(this).attr('data');
+    console.log(tableName);
+    jQuery('#' + tableName).each(function(cmp) {
+        console.log(jQuery(this).text());
+        var h2 = $("<h2>");
+        var ingredient = $(this).text();
+        h2.text(ingredient)
+        $("#groceryList").append(h2);
+    });
+    window.scrollTo(0, 0);
 });
-}) 
+});
