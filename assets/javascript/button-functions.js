@@ -4,7 +4,6 @@ $(document).ready(function(){
         recipeToRemove.remove();
     }
     function addToFavorites(){
-        $(".recipeSubHead").remove();
         var newDiv = $("<div>");
         var recipeID = $("#content-5");//will need id num for each recipe
         newDiv.append(recipeID);
