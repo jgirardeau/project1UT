@@ -15,3 +15,7 @@
 .notHidden {
     display: block
 }
+
+.textBold {
+    font-weight: bold;
+}
