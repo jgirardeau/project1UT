@@ -52,10 +52,64 @@
                 <!-- <p>Items will appear when you "Add to Grocery List"</p> -->
         </div>
 
+                <!--First Recipe Box-->
+                <article class="media box" id="buttons-test">
+                    <!--food image-->
+                    <figure class="media-left">
+                        <p class="image is-150x150">
+                            <img src="https://via.placeholder.com/150" id="image-1">
+                        </p>
+                    </figure>
+                    <!--content-->
+                    <div class="media-content" id="recipe-1">
+                        <div class="content box">
+                            <p>
+                                <strong>Recipe 1</strong>
+                                <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                            </p>
+                        </div>
+                        <!--heart & ingredients-->
+                        <nav class="level is-mobile">
+                            <div class="level-left">
+                                <a class="level-item">
+                                    <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                                </a>
+                                <p>Add to Favorites</p>
+                                <div class="dropdown is-hoverable">
+                                    <div class="dropdown-trigger">
+                                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                      <span>Ingredients</span>
+                      <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                                    </div>
+                                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                        <div class="dropdown-content">
+                                            <div class="dropdown-item">
+                                                <ul>
+                                                    <li>eggs</li>
+                                                    <li>milk</li>
+                                                    <li>sugar</li>
+                                                </ul>
+                                                <a href="#">Add to Grocery List</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <button class="delete"></button>
+                    </article>
+
+                    <!--end of content-->
+                    <!--x in corner to delete-->
+                    <div class="media-right">
         <div class="level">
             <div class="level-item has-text-centered">
                 <div>
-                    <label class="label">Recipe Seasrch: </label>
+                    <label class="label">Recipe Search: </label>
                     <div class="control">
                         <input class="input" id="recipeSearch" type="text" placeholder="Text input">
                         <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
@@ -130,8 +184,8 @@
             <!--end of content-->
             <!--x in corner to delete-->
             <div class="media-right">
-                <button class="delete"></button>
             </div>
+            <button class="delete"></button>
         </article>
         <!--end of first recipe-->
         <div id="box-container">
@@ -158,7 +212,8 @@
 <script src="assets/javascript/main.js"></script>
 <script src="assets/javascript/apicalls.js"></script>
 <script src="assets/javascript/writetodom.js"></script>
+<script src="assets/javascript/button-functions.js"></script>
 <script src="assets/javascript/listtofirebase.js"></script>
-<script src="button-functions.js"></script>
+
 
 </html>

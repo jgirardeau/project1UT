@@ -1,3 +1,4 @@
+
 // var config = {
 //     apiKey: "AIzaSyCBcB7BThjBY9R4qE4E2u63FkkHYc3fDqw",
 //     authDomain: "project1-recipes-dc3ca.firebaseapp.com",
@@ -19,6 +20,7 @@
 //     listItem2,
 //     listItem3
 // });
+
 
 //Add Function to render Full media box
 
@@ -99,4 +101,5 @@ $(document).on('click', '#addToGrocery', function() {
     //     //$("#groceryList").append(h2);
     // });
     window.scrollTo(0, 0);
+});
 });
