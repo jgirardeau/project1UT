@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function(){
 var config = {
     apiKey: "AIzaSyCBcB7BThjBY9R4qE4E2u63FkkHYc3fDqw",
@@ -20,6 +21,29 @@ database.ref().set({
     listItem2,
     listItem3
 });
+=======
+// var config = {
+//     apiKey: "AIzaSyCBcB7BThjBY9R4qE4E2u63FkkHYc3fDqw",
+//     authDomain: "project1-recipes-dc3ca.firebaseapp.com",
+//     databaseURL: "https://project1-recipes-dc3ca.firebaseio.com",
+//     projectId: "project1-recipes-dc3ca",
+//     storageBucket: "project1-recipes-dc3ca.appspot.com",
+//     messagingSenderId: "915749649529"
+// };
+// firebase.initializeApp(config);
+
+// var database = firebase.database();
+
+// var listItem1 = "";
+// var listItem2 = "";
+// var listItem3 = "";
+
+// database.ref().set({
+//     listItem1,
+//     listItem2,
+//     listItem3
+// });
+>>>>>>> master
 
 //Add Function to render Full media box
 
@@ -78,6 +102,8 @@ $("#submitButton").click(function() {
     }
 });
 
+    
+
 $("#clearButton").click(function() {
         event.preventDefault();
         $("#box-container").empty();
@@ -85,16 +111,18 @@ $("#clearButton").click(function() {
     // Adding a click button for a dynamic element
 $(document).on('click', '#addToGrocery', function() {
     event.preventDefault();
-    console.log(this);
+   
     var tableName = $(this).attr('data');
-    console.log(tableName);
-    jQuery('#' + tableName).each(function(cmp) {
-        console.log(jQuery(this).text());
-        var h2 = $("<h2>");
-        var ingredient = $(this).text();
-        h2.text(ingredient)
-        $("#groceryList").append(h2);
-    });
+    addToDatabase(tableName);
+ 
+    // jQuery('#' + tableName).each(function(indx,cmp) {
+    //     console.log(indx,cmp)
+    //     //console.log(jQuery(this).text());
+    //     //var h2 = $("<h2>");
+    //    // ingredient = $(this).text();
+    //     //h2.text(ingredient)
+    //     //$("#groceryList").append(h2);
+    // });
     window.scrollTo(0, 0);
 });
 });
