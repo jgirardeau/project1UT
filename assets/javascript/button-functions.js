@@ -1,24 +1,30 @@
 $(document).ready(function(){
-    function removeRecipe(){
-        var recipeToRemove = $("#recipe-1");//need recipe id number
-        recipeToRemove.remove();
-    }
-    function addToFavorites(){
-        var newDiv = $("<div>");
-        var recipeID = $("#recipe-1");//will need id num for each recipe
-        newDiv.append(recipeID);
-        $("#fav-recipes").append(newDiv);
+    // function removeRecipe(){
+    //     var recipeToRemove = $("#recipe-1");//need recipe id number
+    //     recipeToRemove.remove();
+    // }
+    // function addToFavorites(){
+    //     var newDiv = $("<div>");
+    //     var recipeID = $(this).;//will need id num for each recipe
+    //     newDiv.append(recipeID);
+    //     $("#fav-recipes").append(newDiv);
         
-    }
+    // }
 
     $(document).on("click", ".level-item", function(){
         event.preventDefault();
-        addToFavorites();
+        var newDiv = $("<div>");
+        var recipeToAdd = $(this).closest(".newRecipe");
+        newDiv.append(recipeToAdd);
+        $("#fav-recipes").append(newDiv);
+        
+        
     });
    
     $(document).on("click", ".delete", function(){
         event.preventDefault();
-        removeRecipe();
+        var recipeToDelete = $(this).closest(".newRecipe");
+        recipeToDelete.remove();
         $(this).parent().remove();
     });
 })

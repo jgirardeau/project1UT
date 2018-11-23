@@ -47,6 +47,7 @@ function renderIngredientsToHtml(val) {
 
     // clone
     var box2 = $('#hidden-box').clone();
+    box2.addClass("newRecipe");
     box2.attr('id', 'box-' + val.id);
     box2.removeClass("hidden");
     box2.appendTo('#box-container');
