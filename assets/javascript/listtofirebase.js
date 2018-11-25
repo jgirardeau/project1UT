@@ -86,28 +86,3 @@ database.ref().orderByChild("dateadded").on("child_added", function (childSnapsh
    $("#groceryList").append($div);
 
 });
-
-$(document).on("click", ".level-item", function(){
-    event.preventDefault();
-    var newDiv = $("<div>");
-    var selectRecipe = $(this).closest(".newRecipe");        
-    newDiv.append(selectRecipe);
-    $("#fav-recipes").prepend(newDiv);
-    var recipeTitle = $('#recipe-title').text();
-
-
-    database.ref().push({
-        list1: newDiv
-        dateAdded: firebase.database.ServerValue.TIMESTAMP
-
-    })
-   
-});
-
-$(document).on("click", ".delete", function(){
-    event.preventDefault();
-    var recipeToDelete = $(this).closest(".newRecipe");
-    recipeToDelete.remove();
-    $(this).parent().remove();
-});
-})
