@@ -1,4 +1,5 @@
 function renderRecipeToHtml(response) {
+    var recipeURL = response.sourceRecipeUrl;
     var recipes = response.matches;
     if (recipes.length < 1) {
         $("#recipeNotFound").removeClass("errorHide").addClass("errorShow");

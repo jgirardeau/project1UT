@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 
 // Create a variable to reference the database
 var database = firebase.database();
-
+var recipe;
 // function addtableEntry(table) {
 //     var tr = $("<tr>");
 //     addTableItem(tr, table.trainName);
@@ -42,7 +42,7 @@ function addToDatabase(items) {
     //         dateAdded: firebase.database.ServerValue.TIMESTAMP
     //     });
     // });
-
+    var recipeURL = items.
     console.log($("#recipe-title"))
     var recipeTitle = $('#recipe-title').text();
     var itemsInRecipe = [];
@@ -50,9 +50,11 @@ function addToDatabase(items) {
         itemsInRecipe.push(item.innerHTML);
     });
 
+
     var recipe={
         title:recipeTitle,
         items:itemsInRecipe
+        url:sourceURL
     }
     // console.log(item.innerHTML);
     //recipeItems[indx]=item.innerHTML;
@@ -84,3 +86,28 @@ database.ref().orderByChild("dateadded").on("child_added", function (childSnapsh
    $("#groceryList").append($div);
 
 });
+
+$(document).on("click", ".level-item", function(){
+    event.preventDefault();
+    var newDiv = $("<div>");
+    var selectRecipe = $(this).closest(".newRecipe");        
+    newDiv.append(selectRecipe);
+    $("#fav-recipes").prepend(newDiv);
+    var recipeTitle = $('#recipe-title').text();
+
+
+    database.ref().push({
+        list1: newDiv
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+
+    })
+   
+});
+
+$(document).on("click", ".delete", function(){
+    event.preventDefault();
+    var recipeToDelete = $(this).closest(".newRecipe");
+    recipeToDelete.remove();
+    $(this).parent().remove();
+});
+})
