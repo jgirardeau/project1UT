@@ -35,4 +35,12 @@ $(document).ready(function() {
         addToDatabase(tableName, tableTitle);
         window.scrollTo(0, 0);
     });
+
+
+    $(".hotKey").click(function() {
+        var searchItem = $(this).attr('data');
+        // console.log("search for ", searchItem)
+        $("#recipeSearch").val(searchItem);
+        $("#submitButton").triggerHandler('click');
+    });
 });
