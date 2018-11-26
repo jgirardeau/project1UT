@@ -32,8 +32,12 @@ $(document).ready(function() {
         event.preventDefault();
         var tableName = $(this).attr('data');
         var tableTitle = $(this).attr('title');
-        addToDatabase(tableName, tableTitle);
-        window.scrollTo(0, 0);
+        //console.log("add to table: ", tableTitle)
+        if (recipesInGroceryList.indexOf(tableTitle) < 0) {
+            // only add new recipes
+            addToDatabase(tableName, tableTitle);
+            window.scrollTo(0, 0);
+        }
     });
 
 
