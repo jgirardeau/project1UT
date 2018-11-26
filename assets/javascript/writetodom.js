@@ -45,8 +45,11 @@ function renderIngredientsToHtml(val) {
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
     addItemsToList($("#recipeGroceryList"), val.ingredientLines);
     $("#addToGrocery").attr('data', 'food-' + val.id);
+    $("#addToGrocery").attr('title', val.name);
     var recipeLocation = $("#recipeGroceryList");
     $("#recipeGroceryList").attr('id', 'food-' + val.id);
+    var recipeTitle = $("#recipe-title");
+    $("#recipe-title").attr('id', 'recipeTitle-' + val.id);
 
     // clone
     var box2 = $('#hidden-box').clone();
@@ -56,4 +59,5 @@ function renderIngredientsToHtml(val) {
     box2.removeClass("hidden");
     box2.appendTo('#box-container');
     recipeLocation.attr('id', "recipeGroceryList");
+    recipeTitle.attr('id', "recipe-title");
 }
