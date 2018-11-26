@@ -24,16 +24,16 @@ var recipe;
 
 
 function addItemToList(item) {
-    console.log(item);
+    // console.log(item);
     var li = $("<li>");
     li.text(item.recipeItem);
-    console.log(item);
+    //console.log(item);
     $("#groceryList").append(li);
 }
 
 function addToDatabase(items) {
-    console.log("add to database");
-    console.log(items)
+    // console.log("add to database");
+    // console.log(items)
     var allItems = $("#" + items);
     // allItems.find('li').each(function (indx, item) {
     //     // console.log(item.innerHTML);
@@ -66,9 +66,9 @@ function addToDatabase(items) {
 
 //When database changes this function will be called.
 database.ref().orderByChild("dateadded").on("child_added", function(childSnapshot) {
-    console.log(childSnapshot);
-    console.log(childSnapshot.val())
-        // addItemToList(childSnapshot.val());
+    // console.log(childSnapshot);
+    // console.log(childSnapshot.val())
+    // addItemToList(childSnapshot.val());
     var $div = $("<div>");
     var $title = $("<h1>");
     $title.text(childSnapshot.val().recipe.title);

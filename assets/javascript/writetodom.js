@@ -23,7 +23,7 @@ function addToStringWithComma(string, stringHead, stringTail) {
 }
 
 function addItemsToList(htmlRef, items) {
-    console.log("Add items")
+    //console.log("Add items")
     htmlRef.empty();
     items.forEach(function(val) {
         var li = $("<li>");
@@ -32,10 +32,33 @@ function addItemsToList(htmlRef, items) {
     });
 }
 
+function nutritionOfInterest(element) {
+    nutritionList = ["FAT"]; // etc -- add to this liet
+    indx = nutritionList.indexOf(element);
+    if (indx > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function addNutritionToList(tag, nutrition) {
+    nutrition.forEach(function(val, indx) {
+        attribute = val.attribute;
+        if (nutritionOfInterest(attribute)) {
+            // console.log(indx + " " + val.attribute);
+            // console.log(indx + " " + val.value);
+            // console.log(indx + " " + val.description);
+            // console.log(indx + " " + val.unit.abbreviation);
+            console.log("Add to list: ", val.description + " " + val.value + " " + val.unit.abbreviation)
+        }
+    });
+}
+
 function renderIngredientsToHtml(val) {
-    // console.log(val);
+    //console.log(val);
     // configure template html
-    console.log("Render ingredients")
+    //console.log("Render ingredients")
     $('#recipe-title').text(val.name);
     info = addToStringWithComma("", "Servings: ", val.numberOfServings);
     info = addToStringWithComma(info, "Prep time: ", val.prepTime);
@@ -44,6 +67,7 @@ function renderIngredientsToHtml(val) {
     $("#recipeURL").attr('href', val.attribution.url)
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
     addItemsToList($("#recipeGroceryList"), val.ingredientLines);
+    addNutritionToList($("#nutritionList"), val.nutritionEstimates);
     $("#addToGrocery").attr('data', 'food-' + val.id);
     var recipeLocation = $("#recipeGroceryList");
     $("#recipeGroceryList").attr('id', 'food-' + val.id);
