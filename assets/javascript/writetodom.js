@@ -23,7 +23,7 @@ function addToStringWithComma(string, stringHead, stringTail) {
 }
 
 function addItemsToList(htmlRef, items) {
-    console.log("Add items")
+    // console.log("Add items")
     htmlRef.empty();
     items.forEach(function(val) {
         var li = $("<li>");
@@ -35,7 +35,7 @@ function addItemsToList(htmlRef, items) {
 function renderIngredientsToHtml(val) {
     // console.log(val);
     // configure template html
-    console.log("Render ingredients")
+    // console.log("Render ingredients")
     $('#recipe-title').text(val.name);
     info = addToStringWithComma("", "Servings: ", val.numberOfServings);
     info = addToStringWithComma(info, "Prep time: ", val.prepTime);
