@@ -64,21 +64,32 @@ function addToDatabase(items) {
 
 }
 
+function deleteTableRow(key) {
+    // console.log(this);
+    database.ref().child(key).remove();
+    $("#" + key).remove();
+}
+
+
 //When database changes this function will be called.
 database.ref().orderByChild("dateadded").on("child_added", function(childSnapshot) {
-    // console.log(childSnapshot);
+    // console.log("addlist")
+    //console.log(childSnapshot);
     // console.log(childSnapshot.val())
     // addItemToList(childSnapshot.val());
     var $div = $("<div>");
+    $div.attr('id', childSnapshot.key);
     var $title = $("<h1>");
     $title.text(childSnapshot.val().recipe.title);
     $title.attr('class', 'strongText');
+    var key = childSnapshot.key;
+    $title.prepend('<button type="button" class="btn btn-primary btn-sm" class = "centerButton" onclick=deleteTableRow("' + key + '")> <i class="fa fa-trash"> </button>');
+
     var $ul = $("<ul>");
     $.each(childSnapshot.val().recipe.items, function(idx, value) {
         var li = $("<li>");
         li.text(value);
         $ul.append(li);
-
     });
 
     $div.append($title);
