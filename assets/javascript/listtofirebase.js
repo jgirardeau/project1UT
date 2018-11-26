@@ -60,5 +60,5 @@ database.ref().orderByChild("dateadded").on("child_added", function(childSnapsho
     });
     $div.append($title);
     $div.append($ul);
-    $("#groceryList").append($div);
+    $("#groceryList").prepend($div);
 });

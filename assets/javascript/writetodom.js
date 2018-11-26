@@ -57,7 +57,7 @@ function renderIngredientsToHtml(val) {
     box2.attr('id', 'box-' + val.id);
     box2.addClass("newRecipe");
     box2.removeClass("hidden");
-    box2.appendTo('#box-container');
+    box2.prependTo('#box-container');
     recipeLocation.attr('id', "recipeGroceryList");
     recipeTitle.attr('id', "recipe-title");
 }
