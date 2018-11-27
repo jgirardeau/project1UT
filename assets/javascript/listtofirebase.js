@@ -9,8 +9,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// Create a variable to reference the database
-var database = firebase.database();
+// assign to global
+database = firebase.database();
 
 function addItemToList(item) {
     // console.log(item);
@@ -61,4 +61,5 @@ database.ref().orderByChild("dateadded").on("child_added", function(childSnapsho
     $div.append($title);
     $div.append($ul);
     $("#groceryList").prepend($div);
+    recipesInGroceryList.push(childSnapshot.val().recipe.title);
 });
