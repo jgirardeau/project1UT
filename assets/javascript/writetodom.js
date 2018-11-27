@@ -45,6 +45,8 @@ function renderIngredientsToHtml(val) {
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
     addItemsToList($("#recipeGroceryList"), val.ingredientLines);
     $("#addToGrocery").attr('data', 'food-' + val.id);
+    $("#addToGrocery").attr('dataID', val.id);
+
     $("#addToGrocery").attr('title', val.name);
     var recipeLocation = $("#recipeGroceryList");
     $("#recipeGroceryList").attr('id', 'food-' + val.id);
@@ -55,9 +57,15 @@ function renderIngredientsToHtml(val) {
     var box2 = $('#hidden-box').clone();
     box2.addClass("newRecipe");
     box2.attr('id', 'box-' + val.id);
+    box2.attr('dataID', val.id);
     box2.addClass("newRecipe");
     box2.removeClass("hidden");
-    box2.prependTo('#box-container');
+    // if (recipesInFavorites.indexOf(val.id) < 0){
+        box2.prependTo('#box-container')
+    // }else{
+        // box2.prependTo("#fav-recipes")
+    // }
+
     recipeLocation.attr('id', "recipeGroceryList");
     recipeTitle.attr('id', "recipe-title");
 }

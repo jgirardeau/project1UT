@@ -3,3 +3,4 @@ var database;
 
 //recipe list; global so multiple callbacks can access
 var recipesInGroceryList = [];
+var recipesInFavoritesList = [];
