@@ -1,15 +1,15 @@
 // Initialize Firebase
 $(document).ready(function(){
-    var config = {
-        apiKey: "AIzaSyAuO9BnhrPGkQ_pXC1ctTguv5DnlJyRYJ4",
-        authDomain: "what-s-to-eat.firebaseapp.com",
-        databaseURL: "https://what-s-to-eat.firebaseio.com",
-        projectId: "what-s-to-eat",
-        storageBucket: "what-s-to-eat.appspot.com",
-        messagingSenderId: "951403085103"
-      };
+    // Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAWFTeuvGaobUOR8mtYuNO_wfkrCFAmEJ4",
+    authDomain: "click-project-7e09f.firebaseapp.com",
+    databaseURL: "https://click-project-7e09f.firebaseio.com",
+    projectId: "click-project-7e09f",
+    storageBucket: "click-project-7e09f.appspot.com",
+    messagingSenderId: "1002181717070"
+};
 firebase.initializeApp(config);
-
 // assign to global
 database = firebase.database();
 
@@ -33,7 +33,7 @@ function addToDatabase(items, recipeTitle) {
     var recipe = {
         title: recipeTitle,
         items: itemsInRecipe,
-        key: 0
+        
     }
     database.ref().push({
         recipe: recipe,
