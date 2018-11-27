@@ -20,6 +20,7 @@ function getIngredients(ingredients) {
         .then(function(response) {
             // console.log("calling api " + ingredients)
             renderIngredientsToHtml(response);
+            
         })
 }
 
