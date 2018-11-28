@@ -8,7 +8,9 @@ function renderRecipeToHtml(response) {
     }
     //getIngredients(recipes[0].id);
     recipes.forEach(function(val) {
-        getIngredients(val.id)
+        if (recipesInFavoriteList.indexOf(val.id) < 0) {
+            getIngredients(val.id)
+        }
     });
 }
 // filter out undefines; add "," if more than one descriptor already
@@ -45,8 +47,6 @@ function renderIngredientsToHtml(val) {
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
     addItemsToList($("#recipeGroceryList"), val.ingredientLines);
     $("#addToGrocery").attr('data', 'food-' + val.id);
-    $("#addToGrocery").attr('dataID', val.id);
-
     $("#addToGrocery").attr('title', val.name);
     var recipeLocation = $("#recipeGroceryList");
     $("#recipeGroceryList").attr('id', 'food-' + val.id);
@@ -56,16 +56,17 @@ function renderIngredientsToHtml(val) {
     // clone
     var box2 = $('#hidden-box').clone();
     box2.addClass("newRecipe");
+    box2.attr('data', val.id);
     box2.attr('id', 'box-' + val.id);
-    box2.attr('dataID', val.id);
-    box2.addClass("newRecipe");
     box2.removeClass("hidden");
-    // if (recipesInFavorites.indexOf(val.id) < 0){
-        box2.prependTo('#box-container')
-    // }else{
-        // box2.prependTo("#fav-recipes")
-    // }
-
+    console.log("render ", val.id);
+    if (recipesInFavoriteList.indexOf(val.id) < 0) {
+        box2.prependTo('#box-container');
+        console.log("regular");
+    } else {
+        box2.prependTo('#fav-recipes');
+        console.log("favorites")
+    }
     recipeLocation.attr('id', "recipeGroceryList");
     recipeTitle.attr('id', "recipe-title");
 }
