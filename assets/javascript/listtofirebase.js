@@ -7,7 +7,7 @@ var config = {
     storageBucket: "click-project-7e09f.appspot.com",
     messagingSenderId: "1002181717070"
 };
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 // assign to global
 database = firebase.database();
@@ -77,24 +77,4 @@ database.ref().orderByChild("dateadded").on("child_added", function(childSnapsho
         recipesInFavoriteList.push(recipeKey);
         getIngredients(recipeKey);
     }
-
-});
-
-// function removeFromDatabase(key){
-//     var key = childSnapshot.key;
-//     for (var i = 0; i < recipesInFavoriteList.length; i++){
-//         if (recipesInFavoriteList[i]=== key){
-//             recipesInFavoriteList.splice(i, 1);
-//         }
-//     }
-//     database.ref(key).remove();
-// }
-
-// $(document).on("click", ".delete", function() {
-//     event.preventDefault();
-//     var recipeToDelete = $(this).closest(".newRecipe");    
-//     recipeToDelete.remove();
-//     $(this).parent().remove();
-//     removeFromDatabase();
-    
 });

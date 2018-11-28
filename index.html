@@ -5,17 +5,28 @@
     <meta charset="UTF-8">
     <title>Plan Your Meal</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA5r06jYcdyuGEM6t8FqpwWO01uUAmUxk&libraries=places"></script>
+    <style>
+        /* Set the size of the div element that contains the map */
+            
+            #map {
+                height: 400px;
+                /* The height is 400 pixels */
+                width: 100%;
+                /* The width is the width of the web page */
+            }
+        </style>
 </head>
 
 <body>
-
+   
     <nav class="breadcrumb is-right" aria-label="breadcrumbs" id="top">
         <ul>
             <li><a href="#recipe-1">Recipes</a></li>
@@ -43,7 +54,8 @@
             <!--food image-->
             <figure class="media-left">
                 <p class="image is-150x150">
-                    <img src="https://lh3.googleusercontent.com/o06I2E7LQUks83GWvDXRJ4dJgfxUZWazwOJPZHMhEvaqVbLySWjGkyLxnuNMCoo0cnSKypXfkK6Rxr_thPB8DoE=s360" id="image-1">
+                    <img src="https://lh3.googleusercontent.com/o06I2E7LQUks83GWvDXRJ4dJgfxUZWazwOJPZHMhEvaqVbLySWjGkyLxnuNMCoo0cnSKypXfkK6Rxr_thPB8DoE=s360"
+                        id="image-1">
                 </p>
             </figure>
             <!--content-->
@@ -65,11 +77,11 @@
                         <div class="dropdown is-hoverable">
                             <div class="dropdown-trigger">
                                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                            <span>Ingredients</span>
-                            <span class="icon is-small">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                            </span>
-                        </button>
+                                    <span>Ingredients</span>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
                             </div>
                             <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                                 <div class="dropdown-content">
@@ -85,11 +97,11 @@
                         <div class="dropdown is-hoverable">
                             <div class="dropdown-trigger">
                                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                                <span>Nutrition</span>
-                                <span class="icon is-small">
-                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                </span>
-                            </button>
+                                    <span>Nutrition</span>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -123,15 +135,21 @@
                     <label class="label">Recipe Search: </label>
                     <div class="control">
                         <input class="input" id="recipeSearch" type="text" placeholder="Text input">
-                        <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
+                        <span id="recipeMissing" class="errorHide">Please enter search term</span>
                         <span id="recipeNotFound" class="errorHide">No recipes found</span>
-                        <br><input id="submitButton" class="button" type="submit" value="Submit">
+                        <br><input id="submitButton" class="button" type="submit" value="Find Recipes">
+                        <br><input id="restaurantButton" class="button" type="submit" value="Find Restaurants">
                         <input id="clearButton" class="button" type="clear" value="Clear recipe list">
-                        <img src="assets/images/veggies.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="vegetables">
-                        <img src="assets/images/chicken.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="chicken">
-                        <img src="assets/images/beef.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="beef dishes">
-                        <img src="assets/images/pasta.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="pasta dishes">
-                        <img src="assets/images/cakes.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="cake">
+                        <img src="assets/images/veggies.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;"
+                            data="vegetables">
+                        <img src="assets/images/chicken.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;"
+                            data="chicken">
+                        <img src="assets/images/beef.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;"
+                            data="beef dishes">
+                        <img src="assets/images/pasta.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;"
+                            data="pasta dishes">
+                        <img src="assets/images/cakes.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;"
+                            data="cake">
                     </div>
                 </div>
             </div>
@@ -142,7 +160,7 @@
 
         </div>
         <!--end of box-container-->
-
+        <div id="map"></div>
 
 
         <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
@@ -162,9 +180,10 @@
 <script src="assets/javascript/main.js"></script>
 <script src="assets/javascript/apicalls.js"></script>
 <script src="assets/javascript/writetodom.js"></script>
-<script src="assets/javascript/listtofirebase.js"></script>
 <script src="assets/javascript/button-functions.js"></script>
+<script src="assets/javascript/listtofirebase.js"></script>
 <script src="assets/javascript/favorites_firebase.js"></script>
+<script src="assets/javascript/google2.js"></script>
 
 
 </html>

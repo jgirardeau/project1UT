@@ -59,13 +59,13 @@ function renderIngredientsToHtml(val) {
     box2.attr('data', val.id);
     box2.attr('id', 'box-' + val.id);
     box2.removeClass("hidden");
-    console.log("render ", val.id);
+    //console.log("render ", val.id);
     if (recipesInFavoriteList.indexOf(val.id) < 0) {
         box2.prependTo('#box-container');
-        console.log("regular");
+       // console.log("regular");
     } else {
         box2.prependTo('#fav-recipes');
-        console.log("favorites")
+       // console.log("favorites")
     }
     recipeLocation.attr('id', "recipeGroceryList");
     recipeTitle.attr('id', "recipe-title");

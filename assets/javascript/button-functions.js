@@ -13,12 +13,5 @@ $(document).ready(function() {
         var recipeToDelete = $(this).closest(".newRecipe");
         recipeToDelete.remove();
         $(this).parent().remove();
-        // for (var i = 0; i < recipesInFavoriteList.length; i++){
-        //     if (recipesInFavoriteList[i]=== key){
-        //         recipesInFavoriteList.splice(i, 1);
-        //     }
-        // }
-        // console.log(recipesInFavoriteList)
-
     });
 })
