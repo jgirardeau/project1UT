@@ -4,11 +4,7 @@
 function renderRecipeToHtml(response) {
     var recipeURL = response.sourceRecipeUrl;
     var recipes = response.matches;
-    if (recipes.length < 1) {
-        $("#recipeNotFound").removeClass("errorHide").addClass("errorShow");
-    } else {
-        $("#recipeNotFound").removeClass("errorShow").addClass("errorHide");
-    }
+    checkIfNothingFound(recipes.length);
     //getIngredients(recipes[0].id);
     recipes.forEach(function(val) {
         if (recipesInFavoriteList.indexOf(val.id) < 0) {
@@ -16,6 +12,17 @@ function renderRecipeToHtml(response) {
         }
     });
 }
+
+// make error visible if nothing is in list; otherwise hide error
+function checkIfNothingFound(val) {
+    if (val < 1) {
+        $("#recipeNotFound").removeClass("errorHide").addClass("errorShow");
+    } else {
+        // tell user no restaurant was found
+        $("#recipeNotFound").removeClass("errorShow").addClass("errorHide");
+    }
+}
+
 // filter out undefines; add "," if more than one descriptor already
 function addToStringWithComma(string, stringHead, stringTail) {
     // console.log("start of call " + stringTail)

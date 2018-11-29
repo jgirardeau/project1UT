@@ -53,13 +53,12 @@ $(document).ready(function() {
     $("#restSubmitButton").click(function() {
         event.preventDefault();
         var recipeName = $("#restaurantSearch").val();
-        // TODO: add input validation
         // console.log(recipeName);
-        // if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
-        //console.log("call recipe api" + recipeName)
-        foodsearch = recipeName + " restaurant";
-        getLocation();
-        // }
+        if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
+            //console.log("call recipe api" + recipeName)
+            foodsearch = recipeName + " restaurant";
+            getLocation();
+        }
     });
 
     // add items to the favorite list, including storing to firebase

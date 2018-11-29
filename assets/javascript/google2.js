@@ -10,8 +10,8 @@
           if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(showPosition);
           } else {
-              // ??? add some better message here?
-              // console.log("Geolocation is not supported by this browser.");
+              // ??? geolocation not supported
+              $("#recipeNotFound").removeClass("errorHide").addClass("errorShow");
           }
       }
 
@@ -26,7 +26,7 @@
 
           var request = {
               location: pyrmont,
-              radius: '1000',
+              radius: '2000',
               query: searchTerm
           };
 
@@ -49,6 +49,7 @@
       // called by google api; results are restaurants near location
       function callback(results, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
+              //console.log("call nothing found ", results);
               for (var i = 0; i < results.length; i++) {
                   createMarker(results[i]);
               }
