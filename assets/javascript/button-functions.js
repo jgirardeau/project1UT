@@ -8,10 +8,10 @@ $(document).ready(function() {
         addToDatabase(recipeKey, 0, 0);
     });
 
-    $(document).on("click", ".delete", function() {
-        event.preventDefault();
-        var recipeToDelete = $(this).closest(".newRecipe");
-        recipeToDelete.remove();
-        $(this).parent().remove();
-    });
+    // $(document).on("click", ".delete", function() {
+    //     event.preventDefault();
+    //     var recipeToDelete = $(this).closest(".newRecipe");
+    //     recipeToDelete.remove();
+    //     $(this).parent().remove();
+    // });
 })

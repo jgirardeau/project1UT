@@ -1,12 +1,13 @@
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyAWFTeuvGaobUOR8mtYuNO_wfkrCFAmEJ4",
-    authDomain: "click-project-7e09f.firebaseapp.com",
-    databaseURL: "https://click-project-7e09f.firebaseio.com",
-    projectId: "click-project-7e09f",
-    storageBucket: "click-project-7e09f.appspot.com",
-    messagingSenderId: "1002181717070"
-};
+    apiKey: "AIzaSyAuO9BnhrPGkQ_pXC1ctTguv5DnlJyRYJ4",
+    authDomain: "what-s-to-eat.firebaseapp.com",
+    databaseURL: "https://what-s-to-eat.firebaseio.com",
+    projectId: "what-s-to-eat",
+    storageBucket: "what-s-to-eat.appspot.com",
+    messagingSenderId: "951403085103"
+  };
+  
 firebase.initializeApp(config);
 
 // assign to global
@@ -50,9 +51,12 @@ function deleteTableRow(key) {
 
 //When database changes this function will be called.
 database.ref().orderByChild("dateadded").on("child_added", function(childSnapshot) {
-    //console.log(childSnapshot.val().recipe.key);
+    console.log(childSnapshot.key);
     // check grocery vs. favorite
+    var key = childSnapshot.key;
+    
     var recipeKey = childSnapshot.val().recipe.key;
+    console.log(recipeKey);
     if (recipeKey === 0) {
         //grocery
         var $div = $("<div>");
@@ -60,7 +64,6 @@ database.ref().orderByChild("dateadded").on("child_added", function(childSnapsho
         var $title = $("<h1>");
         $title.text(childSnapshot.val().recipe.title);
         $title.attr('class', 'strongText');
-        var key = childSnapshot.key;
         $title.prepend('<button type="button" class="btn btn-primary btn-sm" class = "centerButton" onclick=deleteTableRow("' + key + '")> <i class="fa fa-trash"> </button>');
         var $ul = $("<ul>");
         $.each(childSnapshot.val().recipe.items, function(idx, value) {
@@ -76,5 +79,20 @@ database.ref().orderByChild("dateadded").on("child_added", function(childSnapsho
         //favorite
         recipesInFavoriteList.push(recipeKey);
         getIngredients(recipeKey);
-    }
+    }   
+
+    $(document).on("click", ".delete", function() {
+        event.preventDefault();
+                        
+        var recipeToDelete = $(this).closest(".newRecipe");
+       
+        recipeToDelete.attr("id", key);
+        // console.log(recipeToDelete);
+        database.ref().child(key).remove();
+        recipeToDelete.remove();
+        
+        // $(this).parent().remove();
+    });
+
+    
 });
