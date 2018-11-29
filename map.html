@@ -13,6 +13,17 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA5r06jYcdyuGEM6t8FqpwWO01uUAmUxk&libraries=places"></script>
+   <style>
+        /* Set the size of the div element that contains the map */
+        
+        #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
 </head>
 
 <body>
@@ -41,11 +52,11 @@
           <div id="searchBox">
               <label class="label">Don't want to cook? </label>
               <div class="control">
-                  <input class="input" id="restaurantSearch" type="text" placeholder="Find restaurants close to you!">
+                  <input class="input" id="restaurantSearch" type="text" placeholder="Enter the type of restaurant">
                   <span id="recipeMissing" class="errorHide">Please enter a valid address</span>
                   <span id="recipeNotFound" class="errorHide">No restaurants found</span>
                   <br><input id="restSubmitButton" class="button" type="submit" value="Submit">
-                  <input id="clearButton" class="button" type="clear" value="Clear">
+                 
               </div>
           </div>
       </div>
@@ -86,11 +97,8 @@
 
     <section class="hero">
  
-
-        <div id="map-box">
-          <img src="https://www.google.com/maps/vt/data=PV4ONH5GO5QM9WlLS8xp2v4fNpxZzIWf1DWA3wdNtONbPJ1fbEb1uLNVZanhaakaUaDkuQrZ2PNnIlzuMBnDlg0G3kfx48ezN7EX7ZzEw8UVCMCuzE_8Rc5MFEx4cLTq28i_kv3H5K95sG9sCJpTZ7_lJJhWNT8AzlYpyU-fGV63COM2Z8bSwvFuhc94oJdKxOogCX9naSF1drLtCsKFnZlyVFoRdfTS8-4FKaguXOnBJe27PjMIfD-QhtPydBZv2FQrdY63ybPG8obcyNkqWdmV6ucO3sTKSpAqO9AugQVv1AY">
-
-        </div>
+        <div id="map"></div>
+        
         <!--end of map-box-->
 
 
@@ -115,6 +123,7 @@
 <script src="assets/javascript/button-functions.js"></script>
 <script src="assets/javascript/listtofirebase.js"></script>
 <script src="assets/javascript/favorites_firebase.js"></script>
+<script src="assets/javascript/google2.js"></script>
 
 
 
