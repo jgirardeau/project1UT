@@ -1,5 +1,7 @@
-$(document).ready(function () {
+// all button click functions are here
+$(document).ready(function() {
 
+    // validate input and toggle error message visibility
     function validateInputTextNotEmpty(inputText, htmlRef) {
         var validText = false;
         // console.log(inputText, " ", inputText.length)
@@ -12,62 +14,82 @@ $(document).ready(function () {
         return validText;
     }
 
-    $("#submitButton").click(function () {
+    // start recipe search
+    $("#submitButton").click(function() {
         event.preventDefault();
         var recipeName = $("#recipeSearch").val();
-
         // console.log(recipeName);
         if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
             //console.log("call recipe api" + recipeName)
             getRecipe(recipeName);
         }
     });
-    $("#restaurantButton").click(function () {
-        event.preventDefault();
-        var recipeName = $("#recipeSearch").val();
 
-        // console.log(recipeName);
-        if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
-            foodsearch = recipeName + " restaurant";
-            getLocation();
+    // remove all previous recipe search results
+    $("#clearButton").click(function() {
+        event.preventDefault();
+        $("#box-container").empty();
+    });
+
+    // add items to the grocery list, including storing to firebase
+    $(document).on('click', '#addToGrocery', function() {
+        event.preventDefault();
+        var tableName = $(this).attr('data');
+        var tableTitle = $(this).attr('title');
+        //console.log("add to table: ", tableTitle)
+        if (recipesInGroceryList.indexOf(tableTitle) < 0) {
+            // only add new recipes
+            addGroceryToDatabase(tableName, tableTitle);
+            window.scrollTo(0, 0);
         }
     });
-   
-        $("#clearButton").click(function () {
-            event.preventDefault();
-            $("#box-container").empty();
-        });
 
-        // Adding a click button for a dynamic element
-        $(document).on('click', '#addToGrocery', function () {
-            event.preventDefault();
-            var tableName = $(this).attr('data');
-            var tableTitle = $(this).attr('title');
-            //console.log("add to table: ", tableTitle)
-            if (recipesInGroceryList.indexOf(tableTitle) < 0) {
-                // only add new recipes
-                addGroceryToDatabase(tableName, tableTitle);
-                window.scrollTo(0, 0);
-            }
-        });
-
-
-        $(".hotKey").click(function () {
-            var searchItem = $(this).attr('data');
-            // console.log("search for ", searchItem)
-            $("#recipeSearch").val(searchItem);
-            $("#submitButton").triggerHandler('click');
-        });
-
-        $("#restSubmitButton").click(function () {
-            event.preventDefault();
-            var recipeName = $("#restaurantSearch").val();
-    
-            // console.log(recipeName);
-            // if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
-                //console.log("call recipe api" + recipeName)
-                foodsearch = recipeName + " restaurant";
-                getLocation();
-            // }
-        });
+    // hotkeys are quick ways to call up pre-set inputs to search (chicken, pasta...)
+    $(".hotKey").click(function() {
+        var searchItem = $(this).attr('data');
+        // console.log("search for ", searchItem)
+        $("#recipeSearch").val(searchItem);
+        $("#submitButton").triggerHandler('click');
     });
+
+
+    // start restaurant search
+    $("#restSubmitButton").click(function() {
+        event.preventDefault();
+        var recipeName = $("#restaurantSearch").val();
+        // console.log(recipeName);
+        // if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
+        //console.log("call recipe api" + recipeName)
+        foodsearch = recipeName + " restaurant";
+        getLocation();
+        // }
+    });
+
+    // add items to the favorite list, including storing to firebase
+    $(document).on("click", ".favoriteButton", function() {
+        event.preventDefault();
+        var newDiv = $("<div>");
+        var selectRecipe = $(this).closest(".newRecipe");
+        var recipeKey = selectRecipe.attr('data');
+        recipesInFavoriteList.push(recipeKey);
+        addToDatabase(recipeKey, 0, 0);
+    });
+
+    // delete items from favorites and from firebase
+    $(document).on("click", ".delete", function() {
+        event.preventDefault();
+        var recipeToDelete = $(this).closest(".newRecipe");
+        //console.log("Delete this recipe ", recipeToDelete);
+        recipeToDelete.remove();
+        $(this).parent().remove();
+        var key = recipeToDelete.attr('data');
+        // check to remove from firebase
+        var indx = recipesInFavoriteList.indexOf(key);
+        //  console.log(indx)
+        if (indx >= 0) {
+            var databaseKey = recipesInFavoriteListKeys[indx];
+            //  console.log(databaseKey)
+            database.ref().child(databaseKey).remove();
+        }
+    });
+});

@@ -1,4 +1,4 @@
-// Initialize Firebase
+// Firebase calls
 var config = {
     apiKey: "AIzaSyAWFTeuvGaobUOR8mtYuNO_wfkrCFAmEJ4",
     authDomain: "click-project-7e09f.firebaseapp.com",
@@ -50,7 +50,6 @@ function deleteTableRow(key) {
 
 //When database changes this function will be called.
 database.ref().orderByChild("dateadded").on("child_added", function(childSnapshot) {
-    //console.log(childSnapshot.val().recipe.key);
     // check grocery vs. favorite
     var recipeKey = childSnapshot.val().recipe.key;
     if (recipeKey === 0) {

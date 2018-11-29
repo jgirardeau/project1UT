@@ -1,3 +1,6 @@
+// functions that modify DOM are here
+
+// calls api for each recipe returned from global search; this is needed to get more detailed info on each recipe
 function renderRecipeToHtml(response) {
     var recipeURL = response.sourceRecipeUrl;
     var recipes = response.matches;
@@ -24,6 +27,7 @@ function addToStringWithComma(string, stringHead, stringTail) {
     return string;
 }
 
+// generic function to add items to an html list
 function addItemsToList(htmlRef, items) {
     // console.log("Add items")
     htmlRef.empty();
@@ -34,10 +38,14 @@ function addItemsToList(htmlRef, items) {
     });
 }
 
+// this is the most complex function of the app; 
+// a hidden div is floating around; when a new recipe comes in, the hidden div is updated
+// then the div is cloned and assigned to the main screen
+// then the div is made visible.
+// complication:
+//  this function can render to the "favorites" area if the recipe is returned from firebase as a favorite
+//  or it can render to the return area from an yummly API search.
 function renderIngredientsToHtml(val) {
-    // console.log(val);
-    // configure template html
-    // console.log("Render ingredients")
     $('#recipe-title').text(val.name);
     info = addToStringWithComma("", "Servings: ", val.numberOfServings);
     info = addToStringWithComma(info, "Prep time: ", val.prepTime);
@@ -62,10 +70,10 @@ function renderIngredientsToHtml(val) {
     //console.log("render ", val.id);
     if (recipesInFavoriteList.indexOf(val.id) < 0) {
         box2.prependTo('#box-container');
-       // console.log("regular");
+        // console.log("regular");
     } else {
         box2.prependTo('#fav-recipes');
-       // console.log("favorites")
+        // console.log("favorites")
     }
     recipeLocation.attr('id', "recipeGroceryList");
     recipeTitle.attr('id', "recipe-title");
