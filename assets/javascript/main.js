@@ -58,4 +58,16 @@ $(document).ready(function () {
             $("#recipeSearch").val(searchItem);
             $("#submitButton").triggerHandler('click');
         });
+
+        $("#restSubmitButton").click(function () {
+            event.preventDefault();
+            var recipeName = $("#restaurantSearch").val();
+    
+            // console.log(recipeName);
+            // if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
+                //console.log("call recipe api" + recipeName)
+                foodsearch = recipeName + " restaurant";
+                getLocation();
+            // }
+        });
     });
