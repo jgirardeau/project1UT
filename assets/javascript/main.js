@@ -16,6 +16,7 @@ $(document).ready(function() {
     // start recipe search
     $("#submitButton").click(function() {
         event.preventDefault();
+        $("#referenceRecipeResults").get(0).scrollIntoView();
         var recipeName = $("#recipeSearch").val();
         if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
             getRecipe(recipeName);
