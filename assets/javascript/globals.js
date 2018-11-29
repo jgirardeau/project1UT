@@ -1,5 +1,4 @@
-// all global vars should be here with an explanation of why they are global and not local
-
+// all global vars should be here 
 
 //firebase database holder; global so it can be shared across different modules accessing firebase
 var database;

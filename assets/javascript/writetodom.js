@@ -38,13 +38,13 @@ function addItemsToList(htmlRef, items) {
     });
 }
 
-// this is the most complex function of the app; 
+// Clone a div and add details
 // a hidden div is floating around; when a new recipe comes in, the hidden div is updated
 // then the div is cloned and assigned to the main screen
 // then the div is made visible.
-// complication:
+// note:
 //  this function can render to the "favorites" area if the recipe is returned from firebase as a favorite
-//  or it can render to the return area from an yummly API search.
+//  or it can render to the recipe search area from an yummly API search.
 function renderIngredientsToHtml(val) {
     $('#recipe-title').text(val.name);
     info = addToStringWithComma("", "Servings: ", val.numberOfServings);
