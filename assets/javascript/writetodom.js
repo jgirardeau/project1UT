@@ -18,7 +18,7 @@ function checkIfNothingFound(val) {
     if (val < 1) {
         $("#recipeNotFound").removeClass("errorHide").addClass("errorShow");
     } else {
-        // tell user no restaurant was found
+        // tell user nothing was found
         $("#recipeNotFound").removeClass("errorShow").addClass("errorHide");
     }
 }
