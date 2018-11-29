@@ -1,20 +1,17 @@
-$(document).ready(function(){
-    // function addToFavorites (recipe){
-    // var newDiv = $("<div>");
-    // var selectRecipe = $(recipe).closest(".newRecipe");        
-    // newDiv.append(selectRecipe);
-    // $("#fav-recipes").prepend(newDiv);
-    // }
-   
-    // $(document).on("click", ".level-item", function(){
-    //     event.preventDefault();
-    //     addToFavorites(this);
-    // });
-   
-    // $(document).on("click", ".delete", function(){
-    //     event.preventDefault();
-    //     var recipeToDelete = $(this).closest(".newRecipe");
-    //     recipeToDelete.remove();
-    //     $(this).parent().remove();
-    // });
+$(document).ready(function() {
+    $(document).on("click", ".favoriteButton", function() {
+        event.preventDefault();
+        var newDiv = $("<div>");
+        var selectRecipe = $(this).closest(".newRecipe");
+        var recipeKey = selectRecipe.attr('data');
+        recipesInFavoriteList.push(recipeKey);
+        addToDatabase(recipeKey, 0, 0);
+    });
+
+    $(document).on("click", ".delete", function() {
+        event.preventDefault();
+        var recipeToDelete = $(this).closest(".newRecipe");
+        recipeToDelete.remove();
+        $(this).parent().remove();
+    });
 })
