@@ -19,3 +19,43 @@
 .strongText {
     font-weight: bold;
 }
+
+#searchBox {
+    position: absolute;
+    margin-top: 270px;
+    z-index: 999;
+}
+
+.hotKeyHolder {
+    margin-top: 7px;
+    padding: 7px;
+    background: darkslategrey;
+}
+
+.hero {
+    padding: 40px;
+    background:darkslategrey;
+}
+
+.title {
+    color: darkslategrey;
+    font-weight: 700;
+}
+
+h3, #topLink, .label  {
+    color: #fff;
+}
+
+h3, .label {
+    font-size: 23px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#topLinkNav {
+    background: 0;
+}
+
+button {
+    margin: 10px;
+}

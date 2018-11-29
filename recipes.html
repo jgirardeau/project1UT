@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
+  
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="assets/images/FruitsVeggies.png">
-    <title>Plan Your Meal</title>
+  <meta charset="UTF-8">
+  <title>Plan Your Meal</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -16,50 +15,33 @@
 </head>
 
 <body>
- 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <h1 class="title">
-                <i class="fas fa-utensils"></i>
-                Plan Your Meal for Tonight!
-            </h1>
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item" href="#box-container">Recipes</a>
-                <a class="navbar-item" href="#fav-recipes">Favorites</a>
-                <a class="navbar-item" href="#groceryList">Grocery List</a>
-                <a class="navbar-item" href="map.html">Restaurant Search</a>
-            </div> 
-        </div>
-    </nav>
-    
-    <div class="level">
-        <div class="level-item has-text-centered">
-            <div id="searchBox">
-                <label class="label">Recipe Search: </label>
-                <div class="control">
-                    <input class="input" id="recipeSearch" type="text" placeholder="Text input">
-                    <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
-                    <span id="recipeNotFound" class="errorHide">No recipes found</span>
-                    <br><input id="submitButton" class="button is-primary" type="submit" value="Submit">
-                    <input id="clearButton" class="button" type="clear" value="Clear recipe list">
-                    <div class="hotKeyHolder">
-                        <img src="assets/images/veggies.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="vegetables">
-                        <img src="assets/images/chicken.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="chicken">
-                        <img src="assets/images/beef.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="beef dishes">
-                        <img src="assets/images/pasta.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="pasta dishes">
-                        <img src="assets/images/cakes.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="cake">
-                    </div>
-                </div>
-            </div>
-        </div>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <h1 class="title">
+        Plan Your Meal for Tonight!
+      </h1>
     </div>
+  </nav>
+  
+  <div class="level">
+      <div class="level-item has-text-centered">
+          <div  id="searchBox">
+              <label class="label">Recipe Search: </label>
+              <div class="control">
+                  <input class="input" id="recipeSearch" type="text" placeholder="Text input">
+                  <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
+                  <span id="recipeNotFound" class="errorHide">No recipes found</span>
+                  <br><input id="submitButton" class="button" type="submit" value="Submit">
+                  <input id="clearButton" class="button" type="clear" value="Clear recipe list">
+                  <img src="assets/images/veggies.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="vegetables">
+                  <img src="assets/images/chicken.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="chicken">
+                  <img src="assets/images/beef.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="beef dishes">
+                  <img src="assets/images/pasta.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="pasta dishes">
+                  <img src="assets/images/cakes.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="cake">
+              </div>
+          </div>
+      </div>
+  </div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -69,19 +51,19 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100 hotKey" data="basil dinner dish" src="assets/css/images/basil-dinner-dish-64208.jpg" alt="Basil Dish" style="width:960px;height:760px;">
+            <img class="d-block w-100" src="assets/css/images/basil-dinner-dish-64208.jpg" alt="Basil Dish">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100 hotKey" data="chocolate berries" src="assets/css/images/berries-chocolates-delicious-918328.jpg" alt="Chocolate Cake" style="width:960px;height:760px;">
+            <img class="d-block w-100" src="assets/css/images/berries-chocolates-delicious-918328.jpg" alt="Chocolate Cake">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100 hotKey" data="eggplant pasta" src="assets/css/images/browntablewithveggies.jpeg" alt="Veggies" style="width:960px;height:760px;">
+            <img class="d-block w-100" src="assets/css/images/browntablewithveggies.jpeg" alt="Veggies">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100 hotKey" data="beet salad" src="assets/css/images/buffet-delicious-dinner-5928.jpg" alt="Forth slide" style="width:960px;height:760px;">
+            <img class="d-block w-100" src="assets/css/images/buffet-delicious-dinner-5928.jpg" alt="Forth slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100 hotKey" data="chocolate cake" src="assets/css/images/cake-chocolate-chocolate-cake-132694.jpg" alt="Fifth slide" style="width:960px;height:760px;">
+            <img class="d-block w-100" src="assets/css/images/cake-chocolate-chocolate-cake-132694.jpg" alt="Fifth slide">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -94,31 +76,36 @@
         </a>
     </div>
 
+    <nav class="breadcrumb is-right" aria-label="breadcrumbs" id="top">
+        <ul>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="favorites.html">Favorites</a></li>
+            <li><a href="groceries.html">Grocery List</a></li>
+            <li><a href="map.html">Restaurant Search</a></li>
+        </ul>
+    </nav>
 
     <section class="hero">
+        <!-- <div class="hero-head">
+            <div class="container">
+                <h1 class="title">
+                    Plan Your Meal for Tonight!
+                </h1>
+                <h2 class="subtitle">
+                    And make your shopping list.
+                </h2>
+            </div>
+        </div> -->
+        <!--end of field-->
 
         <!--STYLE THESE NEXT TWO SECTIONS IN CSS, heading should be bold, p items if we choose to keep them should be faint-->
-
-        <!--Favorite Recipes will go here-->
-        <h3>Favorite Recipes</h3>
-        <div id="fav-recipes" class="box">
-            <!--Items will appear when you click the heart-->
-        </div>
-
-        <!--Grocery List will go here-->
-        <h3>Grocery List</h3>
-        <div class="box">
-            <ul id="groceryList">
-                <!--Items will appear when you "Add to Grocery List"-->
-            </ul>
-        </div>
 
         <!--First Recipe Box-->
         <article class="media box hidden" id="hidden-box">
             <!--food image-->
             <figure class="media-left">
                 <p class="image is-150x150">
-                    <img src="https://lh3.googleusercontent.com/o06I2E7LQUks83GWvDXRJ4dJgfxUZWazwOJPZHMhEvaqVbLySWjGkyLxnuNMCoo0cnSKypXfkK6Rxr_thPB8DoE=s360" id="image-1" style="width:300px;height:300px;">
+                    <img src="https://lh3.googleusercontent.com/o06I2E7LQUks83GWvDXRJ4dJgfxUZWazwOJPZHMhEvaqVbLySWjGkyLxnuNMCoo0cnSKypXfkK6Rxr_thPB8DoE=s360" id="image-1">
                 </p>
             </figure>
             <!--content-->
@@ -129,11 +116,7 @@
                         <div id="recipeInformation"></div>
                         <a id="recipeURL" href="http://www.google.com" target="_blank">Get Recipe</a>
                     </p>
-                    <ul id="recipeGroceryList">
-                    </ul>
-                    <a href="#" id="addToGrocery">Add to Grocery List</a>
                 </div>
-
                 <!--heart & ingredients-->
                 <nav class="level is-mobile">
                     <div class="level-left">
@@ -141,8 +124,27 @@
                             <span class="icon is-small"><i class="fas fa-heart"></i></span>
                         </a>
                         <p>Add to Favorites</p>
-
-                        <!-- <div class="dropdown is-hoverable">
+                        <div class="dropdown is-hoverable">
+                            <div class="dropdown-trigger">
+                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                    <span>Ingredients</span>
+                                    <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                <div class="dropdown-content">
+                                    <div class="dropdown-item">
+                                        <ul id="recipeGroceryList">
+                                        </ul>
+                                        <a href="#" id="addToGrocery">Add to Grocery List</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end of Ingredents drop down-->
+                        <div class="dropdown is-hoverable">
                             <div class="dropdown-trigger">
                                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
                                     <span>Nutrition</span>
@@ -159,8 +161,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
                         <!--end of Nutrition drop down-->
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -179,9 +181,9 @@
 
 
 
-        <nav class="breadcrumb is-centered" aria-label="breadcrumbs" id="topLinkNav">
+        <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
             <ul>
-                <li id="topLink"><a href="#top">Back to the Top</a></li>
+                <li><a href="#top">Back to the Top</a></li>
             </ul>
         </nav>
 
