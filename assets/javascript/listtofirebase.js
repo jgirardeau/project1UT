@@ -75,6 +75,7 @@ database.ref().orderByChild("dateadded").on("child_added", function(childSnapsho
     } else {
         //favorite
         recipesInFavoriteList.push(recipeKey);
+        recipesInFavoriteListKeys.push(childSnapshot.key);
         getIngredients(recipeKey);
     }
 });
