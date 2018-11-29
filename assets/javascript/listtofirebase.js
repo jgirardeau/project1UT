@@ -13,17 +13,13 @@ firebase.initializeApp(config);
 database = firebase.database();
 
 function addItemToList(item) {
-    // console.log(item);
     var li = $("<li>");
     li.text(item.recipeItem);
-    // console.log(item);
     $("#groceryList").append(li);
 }
 
 function addGroceryToDatabase(items, recipeTitle) {
-    // console.log("add to database");
     var allItems = $("#" + items);
-    // console.log(allItems)
     var itemsInRecipe = [];
     allItems.find('li').each(function(indx, item) {
         itemsInRecipe.push(item.innerHTML);
@@ -43,17 +39,21 @@ function addToDatabase(key, recipeTitle, itemsInRecipe) {
     });
 }
 
-function deleteTableRow(key) {
+function deleteTableFromFirebase(key) {
     database.ref().child(key).remove();
+}
+
+function deleteTableRow(key) {
+    deleteTableFromFirebase(key);
     $("#" + key).remove();
 }
 
 //When database changes this function will be called.
 database.ref().orderByChild("dateadded").on("child_added", function(childSnapshot) {
-    // check grocery vs. favorite
     var recipeKey = childSnapshot.val().recipe.key;
+    // check grocery vs. favorite
     if (recipeKey === 0) {
-        //grocery
+        //render to grocery list
         var $div = $("<div>");
         $div.attr('id', childSnapshot.key);
         var $title = $("<h1>");
@@ -72,7 +72,7 @@ database.ref().orderByChild("dateadded").on("child_added", function(childSnapsho
         $("#groceryList").prepend($div);
         recipesInGroceryList.push(childSnapshot.val().recipe.title);
     } else {
-        //favorite
+        //render to favorites
         recipesInFavoriteList.push(recipeKey);
         recipesInFavoriteListKeys.push(childSnapshot.key);
         getIngredients(recipeKey);

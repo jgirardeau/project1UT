@@ -1,9 +1,11 @@
       // google map api; code modelled after:   https://developers.google.com/places/web-service/search#PlaceSearchRequests
 
+      // call google map api (initialize) with a search term and position of where we are
       function showPosition(position) {
           initialize(foodsearch, position.coords.latitude, position.coords.longitude);
       }
 
+      // get current lat/long of where we are
       function getLocation() {
           if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(showPosition);
@@ -13,8 +15,8 @@
           }
       }
 
+      // google api to call a search near lat/lon then render to a map
       function initialize(searchTerm, lat, lon) {
-          //   var pyrmont = new google.maps.LatLng(30.267153, -97.743060);
           var pyrmont = new google.maps.LatLng(lat, lon);
 
           map = new google.maps.Map(document.getElementById('map'), {
@@ -32,6 +34,7 @@
           service.textSearch(request, callback);
       }
 
+      // add a restaurant and description to map
       function createMarker(place) {
           //  var placeLoc = place.geometry.location;
           var marker = new google.maps.Marker({
@@ -43,9 +46,8 @@
 
       }
 
+      // called by google api; results are restaurants near location
       function callback(results, status) {
-          //console.log("Results ", results, " status ", status)
-          //setMapOnAll(null);
           if (status == google.maps.places.PlacesServiceStatus.OK) {
               for (var i = 0; i < results.length; i++) {
                   createMarker(results[i]);

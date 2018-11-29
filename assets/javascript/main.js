@@ -4,7 +4,6 @@ $(document).ready(function() {
     // validate input and toggle error message visibility
     function validateInputTextNotEmpty(inputText, htmlRef) {
         var validText = false;
-        // console.log(inputText, " ", inputText.length)
         if (inputText.length > 0) {
             htmlRef.removeClass("errorShow").addClass("errorHide");
             validText = true;
@@ -18,9 +17,7 @@ $(document).ready(function() {
     $("#submitButton").click(function() {
         event.preventDefault();
         var recipeName = $("#recipeSearch").val();
-        // console.log(recipeName);
         if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
-            //console.log("call recipe api" + recipeName)
             getRecipe(recipeName);
         }
     });
@@ -36,7 +33,6 @@ $(document).ready(function() {
         event.preventDefault();
         var tableName = $(this).attr('data');
         var tableTitle = $(this).attr('title');
-        //console.log("add to table: ", tableTitle)
         if (recipesInGroceryList.indexOf(tableTitle) < 0) {
             // only add new recipes
             addGroceryToDatabase(tableName, tableTitle);
@@ -57,6 +53,7 @@ $(document).ready(function() {
     $("#restSubmitButton").click(function() {
         event.preventDefault();
         var recipeName = $("#restaurantSearch").val();
+        // TODO: add input validation
         // console.log(recipeName);
         // if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
         //console.log("call recipe api" + recipeName)
