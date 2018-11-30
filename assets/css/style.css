@@ -38,8 +38,9 @@
 }
 
 .title {
-    color: darkslategrey;
+    color: white;
     font-weight: 700;
+    font-size: 50px;
 }
 
 h3, #topLink, .label  {
@@ -58,4 +59,20 @@ h3, .label {
 
 button {
     margin: 10px;
+}
+.navbar {
+    background:darkslategrey; 
+}
+.navbar-item {
+    color: white;
+}
+
+.level {
+    margin-top: -2%;
+}
+
+.navbar-brand {
+    margin-bottom: -1%;
+    margin-top: 2%;
+    /* margin-left: 25rem; */
 }
