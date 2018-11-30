@@ -161,3 +161,7 @@ button {
     width:960px;
     height:760px;
 } */
+
+#recipeSearchField {
+    justify-content:center;
+   }
