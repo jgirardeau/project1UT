@@ -58,7 +58,8 @@ function renderIngredientsToHtml(val) {
     info = addToStringWithComma(info, "Prep time: ", val.prepTime);
     info = addToStringWithComma(info, "Cooking time: ", val.cookTime);
     $("#recipeInformation").text(info);
-    $("#recipeURL").attr('href', val.attribution.url)
+    $("#recipeURL").attr('href', val.attribution.url);
+    $("#hoverBoxURL").attr('src', val.attribution.url)
     $("#image-1").attr('src', (val.images[0].hostedLargeUrl));
     addItemsToList($("#recipeGroceryList"), val.ingredientLines);
     $("#addToGrocery").attr('data', 'food-' + val.id);

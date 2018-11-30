@@ -65,7 +65,7 @@ button {
 }
 .navbar-item {
     color: white;
-    background: #FF8C19;
+    background: rgb(66, 97, 97);
 }
 
 .navbar-end {
@@ -89,7 +89,7 @@ button {
 }
 
 .navbar-menu {
-    background: #FF8C19;
+    background: rgb(66, 97, 97);
 }
 
 @media only screen and (max-width: 640px) {
@@ -103,3 +103,61 @@ button {
     }
     
 }
+
+.d-block {
+    max-width: 1400px;
+    /* height: 760px; */
+    max-height: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-item {
+    background: rgb(66, 97, 97);
+}
+
+.favoriteButton {
+    margin-top: 0;
+}
+
+.hoverBox{
+    display: none;
+    width: 100%;
+  }
+  
+  a:hover + .hoverBox,.hoverBox:hover{
+    display: block;
+    position: relative;
+    z-index: 100;
+  }
+
+#clearButton {
+    width: 15%;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    background: rgba(255, 88, 22, 0.616);
+}
+
+#recipeSearch{
+    margin-left: 50px;
+    width: 180px;
+    }
+
+    /* Set the size of the div element that contains the map */
+    
+    #map {
+        height: 500px;
+        width: 100%;
+    }
+
+.slideImage2 {
+    max-width: 960px;
+    max-height:470px;
+}
+
+/* .slideImage {
+    width:960px;
+    height:760px;
+} */

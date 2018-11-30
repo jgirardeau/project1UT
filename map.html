@@ -14,16 +14,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAA5r06jYcdyuGEM6t8FqpwWO01uUAmUxk&libraries=places"></script>
-    <style>
-        /* Set the size of the div element that contains the map */
-        
-        #map {
-            height: 400px;
-            /* The height is 400 pixels */
-            width: 100%;
-            /* The width is the width of the web page */
-        }
-    </style>
+
 </head>
 
 <body>
@@ -41,7 +32,7 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-end">
                 <a class="navbar-item" href="index.html">Home</a>
-                <a class="navbar-item" href="map.html">Restaurant Search</a>
+                <a class="navbar-item" id="mapLink" href="map.html">Restaurant Search</a>
             </div>
         </div>
     </nav>
@@ -49,13 +40,17 @@
     <div class="level">
         <div class="level-item has-text-centered">
             <div id="searchBox">
-                <label class="label">Don't want to cook? </label>
-                <div class="control">
-                    <input class="input" id="restaurantSearch" type="text" placeholder="Enter the type of restaurant">
+                <label class="label">Don't want to cook? <br> Search for a Restaurant! </label>
+                <div class="field has-addons">
+                    <div class="control">
+                        <input class="input" id="restaurantSearch" type="text" placeholder="Ex: Thai">
+                    </div>
+                    <div class="control">
+                        <input id="restSubmitButton" class="button is-primary" type="submit" value="Submit">    
+                    </div>
                     <span id="recipeMissing" class="errorHide">Please enter a search term</span>
                     <span id="recipeNotFound" class="errorHide">Geo location not supported</span>
-                    <br><input id="restSubmitButton" class="button" type="submit" value="Submit">
-
+                    
                 </div>
             </div>
         </div>
@@ -66,22 +61,24 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="assets/css/images/basil-dinner-dish-64208.jpg" alt="Basil Dish">
+                <img class="d-block w-100 slideImage2" src="assets/images/rest1.png" alt="Basil Dish">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="assets/css/images/berries-chocolates-delicious-918328.jpg" alt="Chocolate Cake">
+                <img class="d-block w-100 slideImage2" src="assets/images/rest2.png" alt="Chocolate Cake">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="assets/css/images/browntablewithveggies.jpeg" alt="Veggies">
+                <img class="d-block w-100 slideImage2" src="assets/images/rest6.png" alt="Veggies">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="assets/css/images/buffet-delicious-dinner-5928.jpg" alt="Forth slide">
+                <img class="d-block w-100 slideImage2" src="assets/images/rest4.png" alt="Forth slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="assets/css/images/cake-chocolate-chocolate-cake-132694.jpg" alt="Fifth slide">
+                <img class="d-block w-100 slideImage2" src="assets/images/rest5.png" alt="Fifth slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -95,24 +92,14 @@
     </div>
 
     <section class="hero">
-
         <div id="map"></div>
-
-        <!--end of map-box-->
-
-
-
+        <!--end of map-->
         <nav class="breadcrumb is-centered" aria-label="breadcrumbs" id="topLinkNav">
             <ul>
                 <li id="topLink"><a href="#top">Back to the Top</a></li>
             </ul>
         </nav>
-
-
     </section>
-    <!--end of Hero Section, contains whole page-->
-
-
 
 </body>
 <script src="assets/javascript/globals.js"></script>
@@ -121,6 +108,12 @@
 <script src="assets/javascript/writetodom.js"></script>
 <script src="assets/javascript/listtofirebase.js"></script>
 <script src="assets/javascript/google2.js"></script>
+<script>
+    $(document).ready(function(){
+    getLocation();
+    initialLocation(); 
+    });
+</script>
 
 
 
