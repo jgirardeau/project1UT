@@ -65,14 +65,41 @@ button {
 }
 .navbar-item {
     color: white;
+    background: #FF8C19;
+}
+
+.navbar-end {
+    background: darkslategrey;
+    margin-bottom: -1%;
+    
 }
 
 .level {
-    margin-top: -2%;
+    margin-top: -5%;
 }
 
 .navbar-brand {
     margin-bottom: -1%;
     margin-top: 2%;
     /* margin-left: 25rem; */
+}
+
+.navbar-burger {
+    color: white;
+}
+
+.navbar-menu {
+    background: #FF8C19;
+}
+
+@media only screen and (max-width: 640px) {
+ .title {
+     font-size: 40px;
+ } 
+}
+@media only screen and (min-width: 1024px){
+    .navbar-item, .navbar-menu {
+        background: darkslategrey;
+    }
+    
 }
