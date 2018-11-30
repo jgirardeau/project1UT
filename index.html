@@ -35,7 +35,7 @@
                     <a class="navbar-item" href="#referenceRecipeResults">Recipes</a>
                     <a class="navbar-item" href="#referenceFavoriteRecipes">Favorites</a>
                     <a class="navbar-item" href="#referenceGroceryList">Grocery List</a>
-                    <a class="navbar-item" href="map.html">Restaurant Search</a>
+                    <a class="navbar-item" id="mapLink" href="map.html">Restaurant Search</a>
                 </div>
             </div>
         </div>  
@@ -45,19 +45,22 @@
         <div class="level-item has-text-centered">
             <div id="searchBox">
                 <label class="label">Recipe Search: </label>
-                <div class="control">
-                    <input class="input" id="recipeSearch" type="text" placeholder="Text input">
-                    <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
-                    <span id="recipeNotFound" class="errorHide">No recipes found</span>
-                    <br><input id="submitButton" class="button is-primary" type="submit" value="Submit">
-                    <input id="clearButton" class="button" type="clear" value="Clear recipe list">
-                    <div class="hotKeyHolder">
-                        <img src="assets/images/veggies.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="vegetables">
-                        <img src="assets/images/chicken.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="chicken">
-                        <img src="assets/images/beef.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="beef dishes">
-                        <img src="assets/images/pasta.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="pasta dishes">
-                        <img src="assets/images/cakes.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="cake">
+                <div class="field has-addons" id="recipeSearchField">
+                    <div class="control">
+                        <input class="input" id="recipeSearch" type="text" placeholder="Ex: Pasta">
                     </div>
+                    <div class="control">
+                        <input id="submitButton" class="button is-primary" type="submit" value="Submit">
+                    </div>
+                </div><!--end of add ons-->
+                <span id="recipeMissing" class="errorHide">Please enter a recipe idea</span>
+                <span id="recipeNotFound" class="errorHide">No recipes found</span>
+                <div class="hotKeyHolder">
+                    <img src="assets/images/veggies.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="vegetables">
+                    <img src="assets/images/chicken.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="chicken">
+                    <img src="assets/images/beef.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="beef dishes">
+                    <img src="assets/images/pasta.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="pasta dishes">
+                    <img src="assets/images/cakes.png" class="hotKey" alt="HTML5 Icon" style="width:64px;height:64px;" data="cake">
                 </div>
             </div>
         </div>
@@ -68,22 +71,24 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100 hotKey" data="basil dinner dish" src="assets/css/images/basil-dinner-dish-64208.jpg" alt="Basil Dish" style="width:960px;height:760px;">
+                <img class="d-block w-100 hotKey slideImage" data="basil dinner dish" src="assets/css/images/basil-dinner-dish-64208.jpg" alt="Basil Dish">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100 hotKey" data="chocolate berries" src="assets/css/images/berries-chocolates-delicious-918328.jpg" alt="Chocolate Cake" style="width:960px;height:760px;">
+                <img class="d-block w-100 hotKey slideImage" data="chocolate berries" src="assets/css/images/berries-chocolates-delicious-918328.jpg" alt="Chocolate Cake">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100 hotKey" data="eggplant pasta" src="assets/css/images/browntablewithveggies.jpeg" alt="Veggies" style="width:960px;height:760px;">
+                <img class="d-block w-100 hotKey slideImage" data="eggplant pasta" src="assets/css/images/browntablewithveggies.jpeg" alt="Veggies">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100 hotKey" data="beet salad" src="assets/css/images/buffet-delicious-dinner-5928.jpg" alt="Forth slide" style="width:960px;height:760px;">
+                <img class="d-block w-100 hotKey slideImage" data="beet salad" src="assets/css/images/buffet-delicious-dinner-5928.jpg" alt="Forth slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100 hotKey" data="chocolate cake" src="assets/css/images/cake-chocolate-chocolate-cake-132694.jpg" alt="Fifth slide" style="width:960px;height:760px;">
+                <img class="d-block w-100 hotKey slideImage" data="chocolate cake" src="assets/css/images/cake-chocolate-chocolate-cake-132694.jpg" alt="Fifth slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -115,6 +120,9 @@
                         <strong id="recipe-title">Recipe 1</strong>
                         <div id="recipeInformation"></div>
                         <a id="recipeURL" href="http://www.google.com" target="_blank">Get Recipe</a>
+                        <div class="hoverBox">
+                            <iframe id="hoverBoxURL" src="http://www.google.com" width = "500px" height = "500px"></iframe>
+                        </div>
                     </p>
                     <ul id="recipeGroceryList">
                     </ul>
@@ -122,9 +130,9 @@
                 </div>
 
                 <!--heart & ingredients-->
-                <nav class="level is-mobile">
+                <nav class="level is-mobile favoriteButton">
                     <div class="level-left">
-                        <a class="level-item favoriteButton">
+                        <a class="level-item ">
                             <span class="icon is-small"><i class="fas fa-heart"></i></span>
                         </a>
                         <p>Add to Favorites</p>
@@ -154,10 +162,10 @@
 
         <h3 id="referenceRecipeResults">Recipes</h3>
         <div id="box-container">
-
-
-
+            
+            
         </div>
+        <input id="clearButton" class="button is-danger" type="clear" value="Clear Recipe List" disabled>
         <!--end of box-container-->
 
 
@@ -181,6 +189,7 @@
 <script src="assets/javascript/writetodom.js"></script>
 <script src="assets/javascript/listtofirebase.js"></script>
 <script src="assets/javascript/google2.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
 </html>

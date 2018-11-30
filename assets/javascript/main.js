@@ -21,12 +21,18 @@ $(document).ready(function() {
         if (validateInputTextNotEmpty(recipeName, $("#recipeMissing"))) {
             getRecipe(recipeName);
         }
+        //make clear button active
+        $('#clearButton').removeAttr('disabled');
+        //clear input box
+        $('#recipeSearch').val('');
     });
 
     // remove all previous recipe search results
     $("#clearButton").click(function() {
         event.preventDefault();
         $("#box-container").empty();
+        //disable clear button
+        $('#clearButton').attr('disabled', 'disabled');
     });
 
     // add items to the grocery list, including storing to firebase
@@ -60,6 +66,8 @@ $(document).ready(function() {
             foodsearch = recipeName + " restaurant";
             getLocation();
         }
+        //clear restaurant search
+        $("#restaurantSearch").val('');
     });
 
     // add items to the favorite list, including storing to firebase

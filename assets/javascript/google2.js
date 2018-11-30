@@ -55,3 +55,22 @@
               }
           }
       }
+
+      // google api to call a search near lat/lon then render to a map
+      function initialLocation(lat, lon) {
+        var pyrmont = new google.maps.LatLng(lat, lon);
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        });
+
+        var request = {
+            location: pyrmont,
+            radius: '2000',
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+    }
+
