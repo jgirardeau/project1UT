@@ -115,42 +115,46 @@
 
     <section class="hero">
 
-        <!--STYLE THESE NEXT TWO SECTIONS IN CSS, heading should be bold, p items if we choose to keep them should be faint-->
         <!--First Recipe Box-->
         <article class="media box hidden" id="hidden-box">
-            <!--food image-->
-            <figure class="media-left">
-                <p class="image is-150x150">
-                    <img src="https://lh3.googleusercontent.com/o06I2E7LQUks83GWvDXRJ4dJgfxUZWazwOJPZHMhEvaqVbLySWjGkyLxnuNMCoo0cnSKypXfkK6Rxr_thPB8DoE=s360" id="image-1" style="width:300px;height:300px;">
+          <div class="columns is-gapless">
+            <div class="column is-half">
+              <!--food image-->
+              <figure class="media-left">
+                <p class="image is-300x300">
+                  <img src="https://lh3.googleusercontent.com/o06I2E7LQUks83GWvDXRJ4dJgfxUZWazwOJPZHMhEvaqVbLySWjGkyLxnuNMCoo0cnSKypXfkK6Rxr_thPB8DoE=s360" id="image-1" style="width:300px;height:300px;">
                 </p>
-            </figure>
-            <!--content-->
-            <div class="media-content" id="recipe-1">
+              </figure>
+            </div><!--end of col 1, img-->
+            <div class="column">
+              <!--content-->
+              <div class="media-content" id="recipe-1">
                 <div class="content box">
-                    <p>
-                        <strong id="recipe-title">Recipe 1</strong>
-                        <div id="recipeInformation"></div>
-                        <a id="recipeURL" href="http://www.google.com" target="_blank">Get Recipe</a>
-                    </p>
-                    <ul id="recipeGroceryList">
-                    </ul>
-                    <a href="#" id="addToGrocery">Add to Grocery List</a>
+                  <p>
+                    <strong id="recipe-title">Recipe 1</strong>
+                    <div id="recipeInformation"></div>
+                    <a id="recipeURL" href="http://www.google.com" target="_blank">Get Recipe</a>
+                  </p>
+                  <ul id="recipeGroceryList">
+                  </ul>
+                  <a href="#" id="addToGrocery">Add to Grocery List</a>
                 </div>
-
+                
                 <!--heart & ingredients-->
                 <nav class="level is-mobile favoriteButton">
-                    <div class="level-left">
-                        <a class="level-item ">
-                            <span class="icon is-small"><i class="fas fa-heart"></i></span>
-                        </a>
-                        <p>Add to Favorites</p>
-                    </div>
+                  <div class="level-left">
+                    <a class="level-item ">
+                      <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                    </a>
+                    <p>Add to Favorites</p>
+                  </div>
                 </nav>
-            </div>
-            <!--end of content-->
+              </div>
+            </div><!--end of col 2, content-->
+          </div><!--end of columns-->
             <!--x in corner to delete-->
             <div class="media-right">
-                <button class="delete"></button>
+              <button class="delete"></button>
             </div>
         </article>
         <!--end of first recipe-->
