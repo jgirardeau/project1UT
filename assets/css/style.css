@@ -35,6 +35,9 @@
 .hero {
     padding: 40px;
     background:darkslategrey;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .title {
@@ -106,8 +109,7 @@ button {
 
 .d-block {
     max-width: 1400px;
-    /* height: 760px; */
-    max-height: 750px;
+    max-height: 635px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -120,19 +122,8 @@ button {
     margin-top: 0;
 }
 
-.hoverBox{
-    display: none;
-    width: 100%;
-  }
-  
-  a:hover + .hoverBox,.hoverBox:hover{
-    display: block;
-    position: relative;
-    z-index: 100;
-  }
-
 #clearButton {
-    width: 15%;
+    width: 175px;
     margin: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -145,12 +136,11 @@ button {
     width: 180px;
     }
 
-    /* Set the size of the div element that contains the map */
-    
-    #map {
-        height: 500px;
-        width: 100%;
-    }
+/* Set the size of the div element that contains the map */    
+#map {
+    height: 500px;
+    width: 100%;
+}
 
 .slideImage2 {
     max-width: 960px;
@@ -165,3 +155,7 @@ button {
 #recipeSearchField {
     justify-content:center;
    }
+
+body {
+  background: darkslategrey;
+}
